@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -35,7 +40,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver = {
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
   };
 
   hardware.opengl.enable = true;
@@ -47,9 +52,10 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
-  services.xserver.displayManager.sddm = { 
+  services.xserver.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
@@ -63,6 +69,7 @@
     enable = true;
     xwayland.enable = true;
   };
+  security.pam.services.hyprlock = { };
 
   # Configure keymap in X11
   # services.xserver.xkb = {
@@ -96,11 +103,16 @@
   users.users.meysi = {
     isNormalUser = true;
     description = "Sias Mey";
-    extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJf6EqaVpGEIepdFSzJ+eZl/F6zACCJObvI5HsKneMVbAAAACnNzaDpnaXRodWI= meysi"
+    extraGroups = [
+      "networkmanager"
+      "wheel"
     ];
+    openssh.authorizedKeys.keys = [
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJf6EqaVpGEIepdFSzJ+eZl/F6zACCJObvI5HsKneMVbAAAACnNzaDpnaXRodWI= meysi"
+    ];
+    shell = pkgs.zsh;
   };
+  users.defaultUserShell = pkgs.zsh;
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -108,25 +120,44 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
+  programs.ssh = {
+    startAgent = true;
+  };
+
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     wget
-     neovim
-     git
-     nh
-     curl
-     kitty
-     waybar
-     dunst
-     libnotify
-     hyprpaper
-     rofi-wayland
-     jq
+    neovim
+    wget
+    git
+    nh
+    curl
+    kitty
+    jq
+    killall
+
+    dunst
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprpolkitagent
+    libnotify
+    rofi-wayland
+    waybar
+    wl-clipboard
+    wlogout
   ];
   environment.variables.EDITOR = "nvim";
   environment.sessionVariables = {
@@ -171,5 +202,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
