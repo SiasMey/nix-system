@@ -73,16 +73,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-
-    extraConfig.pipewire."92-low-latency" = {
-      "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.allowed-rates" = [44100 48000 88200 96000 176400 192000];
-        "default.clock.quantum" = 1024;
-        "default.clock.min-quantum" = 128;
-        "default.clock.max-quantum" = 4096;
-      };
-    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
