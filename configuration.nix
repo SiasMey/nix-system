@@ -40,7 +40,6 @@
     videoDrivers = ["nvidia"];
   };
 
-  hardware.opengl.enable = true;
   hardware.graphics.enable = true;
 
   hardware.nvidia = {
@@ -49,10 +48,10 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
@@ -74,6 +73,16 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.allowed-rates" = [44100 48000 88200 96000 176400 192000];
+        "default.clock.quantum" = 1024;
+        "default.clock.min-quantum" = 128;
+        "default.clock.max-quantum" = 4096;
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -113,8 +122,6 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
     wget
@@ -124,20 +131,33 @@
     kitty
     jq
 
+    hyprpolkitagent
     dunst
     hypridle
-    hyprlock
     hyprpaper
-    hyprpolkitagent
+    hyprshot
+    hyprpicker
+
+    networkmanagerapplet
     libnotify
     rofi-wayland
-    waybar
     wl-clipboard
     wlogout
+
+    mangohud
+    protonup
+    lutris
+    webcord
+    winetricks
+    wineWowPackages.waylandFull
+
+    gparted
   ];
+
   environment.variables.EDITOR = "nvim";
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
   xdg.portal.enable = true;
@@ -154,12 +174,6 @@
     openFirewall = true;
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
   nix.settings.experimental-features = [
     "nix-command"
