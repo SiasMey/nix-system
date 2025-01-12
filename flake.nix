@@ -31,9 +31,6 @@
       };
     };
 
-    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-
     homeConfigurations = {
       "meysi@HPE-LFL6NJ14KD" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
