@@ -11,6 +11,7 @@
     ./gaming
     ./users
     ./remote-access
+    ./scripts
   ];
 
   # Set your time zone.
