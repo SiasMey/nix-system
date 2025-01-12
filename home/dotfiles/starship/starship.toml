@@ -1,0 +1,67 @@
+format = """
+[ \uf313 ](fg:4 bg:8)\
+[\ue0b0](fg:8 bg:0)\
+$directory\
+[\ue0b0](fg:0 bg:8)\
+$git_branch\
+$git_status\
+[\ue0b0 ](fg:8)\
+$character
+"""
+
+right_format = """$python$golang$kubernetes"""
+
+[fill]
+symbol = " "
+
+[directory]
+style = "fg:12 bg:0"
+format = "[ $path ]($style)"
+truncate_to_repo = true
+truncation_length = 5
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"~/work/" = " "
+
+[kubernetes]
+style = "fg:12 bg:8"
+disabled = false
+detect_files = ["k8s"]
+format = "[\ue0b2](fg:8)[${symbol} ($user on )$context ($namespace)]($style)"
+
+[kubernetes.context_aliases]
+"minikube" = "dev"
+"arn:aws:eks:us-west-1:976748715263:cluster/uxi_staging" = "uxi_staging"
+
+[kubernetes.user_aliases]
+"minikube" = "dev"
+"arn:aws:eks:us-west-1:976748715263:cluster/uxi_staging" = "dev"
+
+
+[python]
+style = "fg:12 bg:8"
+pyenv_version_name = false
+format = "[\ue0b2](fg:8)[${symbol} ${version}]($style)"
+disabled = false
+
+[golang]
+style = "fg:12 bg:8"
+format = "[\ue0b2](fg:8)[${symbol} ${version}]($style)"
+disabled = false
+
+[git_branch]
+symbol = ""
+style = "bg:8"
+format = '[[ $symbol ](fg:15 bg:8)]($style)'
+
+[git_status]
+style = "bg:8"
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+format = '[[($all_status $ahead_behind)](fg:1 bg:8)]($style)'
