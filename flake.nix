@@ -36,16 +36,11 @@
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
+          ./home/users/meysi/work-laptop.nix
           {
             home.username = "meysi";
             home.homeDirectory = "/Users/meysi";
           }
-          ./home.nix
-          ./unfree.nix
-          ./terminal.nix
-          ./editor.nix
-          ./shell-scripts.nix
-          ./mac.nix
         ];
       };
 

@@ -8,8 +8,30 @@
     enable = true;
   };
 
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+      listener = [
+        {
+          timeout = 900;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "loginctl lock-session";
+        }
+      ];
+    };
+  };
+
   programs.hyprlock = {
-    enable = false;
+    enable = true;
     settings = {
       general = {
         disable_loading_bar = true;
@@ -37,7 +59,7 @@
           inner_color = "rgb(91, 96, 120)";
           outer_color = "rgb(24, 25, 38)";
           outline_thickness = 5;
-          placeholder_text = ''\'<span foreground="##cad3f5">Password...</span>'\'';
+          placeholder_text = ''<span foreground="##cad3f5">Password...</span>'';
           shadow_passes = 2;
         }
       ];
@@ -184,7 +206,7 @@
       # bind = $hyper, N, exec, $focus-or-start alacritty Alacritty
       bind = $hyper, N, exec, $focus-or-start ghostty com.mitchellh.ghostty
       # bind = $hyper, E, exec, $focus-or-start firefox firefox
-      bind = $hyper, E, exec, $focus-or-start zen zen-beta
+      bind = $hyper, E, exec, $focus-or-start zen zen
       bind = $hyper, I, exec, $focus-or-start webcord WebCord
       bind = $hyper, M, exec, $focus-or-start steam steam
       bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
@@ -239,6 +261,7 @@
       windowrulev2 = workspace 1,class:^(com.mitchellh.ghostty)$
       windowrulev2 = workspace 2,class:^(firefox)$
       windowrulev2 = workspace 2,class:^(zen-beta)$
+      windowrulev2 = workspace 2,class:^(zen)$
       windowrulev2 = workspace 3,class:^(discord)$
       windowrulev2 = workspace 3,class:^(WebCord)$
       windowrulev2 = workspace 5,class:^(steam)$
