@@ -1,6 +1,7 @@
 {...}: {
   home.file = {
     ".config/ghostty/config".source = ../dotfiles/ghostty/config;
+    # ghostty has to be installed via homebrew on mac
   };
 
   home.file = {
@@ -8,7 +9,7 @@
   };
 
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       env = {
         TERM = "xterm-kitty";

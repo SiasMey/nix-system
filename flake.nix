@@ -40,6 +40,8 @@
           {
             home.username = "meysi";
             home.homeDirectory = "/Users/meysi";
+            # Allow unfree packages
+            nixpkgs.config.allowUnfree = true;
           }
         ];
       };

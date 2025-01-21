@@ -6,5 +6,7 @@
     (import ./vt.nix {inherit pkgs;})
     (import ./vm.nix {inherit pkgs;})
     (import ./palette.nix {inherit pkgs;})
+    (import ./gwt-clone.nix {inherit pkgs;})
+    (import ./git-update-branch.nix {inherit pkgs;})
   ];
 }

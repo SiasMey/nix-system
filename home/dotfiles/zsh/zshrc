@@ -12,6 +12,7 @@ path+=~/bin
 alias vi=nvim
 alias vim=nvim
 alias cat='bat --paging=never'
+alias docker=podman
 
 atuin-setup() {
     if ! which atuin &> /dev/null; then return 1; fi

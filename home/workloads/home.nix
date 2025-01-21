@@ -12,7 +12,6 @@
 
   home.packages = [
     pkgs.atuin
-    # pkgs.awscli2
     pkgs.bottom
     pkgs.cargo
     pkgs.dust
@@ -24,7 +23,6 @@
     pkgs.presenterm
     pkgs.python3Minimal
     pkgs.rustc
-    # pkgs.terraform
     pkgs.uv
     pkgs.zig
     pkgs.nerd-fonts.jetbrains-mono

@@ -6,6 +6,7 @@ user := `whoami`
 
 alias bs := build_switch
 alias hs := home_switch
+alias hb := home_build
 alias u := update
 alias uc := update_commit
 
@@ -13,11 +14,15 @@ alias uc := update_commit
 build_switch:
     nh os switch . -H {{ host }}
 
-# Build home-manager
+# Switch home-manager
 home_switch:
     nh home switch . -c {{ user }}@{{ host }}
 
-# Show neovim flake output
+# Build home-manager
+home_build:
+    nh home build . -c {{ user }}@{{ host }}
+
+# Show flake output
 show:
     nix flake show
 

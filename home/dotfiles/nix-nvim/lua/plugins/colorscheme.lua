@@ -9,7 +9,7 @@ M.setup = function()
   NeoSolarized.setup({
     style = "light", -- "dark" or "light"
     transparent = false, -- true/false; Enable this to disable setting the background color
-    terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+    terminal_colors = false, -- Configure the colors used when opening a `:terminal` in Neovim
     enable_italics = true, -- Italics for different highlight groups (eg. Statement, Condition, Comment, Include, etc.)
     styles = {
       -- Style to be applied to different syntax groups
