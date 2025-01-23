@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   # Enable the X11 windowing system.
   services.xserver = {
-    videoDrivers = ["nvidia"];
+    # videoDrivers = ["nvidia"];
   };
   services.displayManager.sddm = {
     enable = true;

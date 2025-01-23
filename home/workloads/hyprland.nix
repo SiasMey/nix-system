@@ -69,7 +69,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
-      monitor=DP-1,2560x1440@120.00,auto,auto
+      monitor=DP-1,2560x1440@144,auto,auto
 
       $terminal = ghostty
       $fileManager = dolphin
