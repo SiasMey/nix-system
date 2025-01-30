@@ -57,6 +57,12 @@
         autocrlf = false;
         eol = "lf";
       };
+      alias = {
+        default-branch = "!git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/";
+        wt-default-branch = ''cat "$(git worktree list --porcelain | grep \.bare | cut -d ' ' -f 2)/HEAD" | cut -d '/' -f 3'';
+        sync-default-branch = "!git remote set-head origin --auto";
+        sync = "!git fetch -p && git merge origin/$(git default-branch)";
+      };
     };
   };
 
