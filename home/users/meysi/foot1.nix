@@ -6,5 +6,6 @@
     ../../workloads/hyprland.nix
     ../../workloads/terminal.nix
     ../../workloads/cad
+    ../../workloads/k8s.nix
   ];
 }
