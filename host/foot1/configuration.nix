@@ -12,6 +12,7 @@
     ./users
     ./remote-access
     ./scripts
+    ../workloads/virtualization.nix
   ];
 
   # Set your time zone.
