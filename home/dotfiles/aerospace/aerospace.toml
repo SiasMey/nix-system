@@ -115,44 +115,53 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 [workspace-to-monitor-force-assignment]
 T = ['secondary', 'main']
 B = ['secondary', 'main']
-S = ['main', 'secondary']
+D = ['main', 'secondary']
 U = ['main', 'secondary']
+S = ['main', 'secondary']
 M = ['main', 'secondary']
+E = ['main', 'secondary']
 
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace T'
+check-further-callbacks = false
 
 [[on-window-detected]]
 if.app-name-regex-substring = "Ghostty"
 run = 'move-node-to-workspace T'
+check-further-callbacks = false
 
 [[on-window-detected]]
 if.app-name-regex-substring = "alacritty"
 run = 'move-node-to-workspace T'
+check-further-callbacks = false
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = 'move-node-to-workspace B'
+check-further-callbacks = false
 
 [[on-window-detected]]
-# if.app-id = 'com.tinyspeck.slackmacgap'
 if.app-name-regex-substring = "Slack"
 run = 'move-node-to-workspace S'
+check-further-callbacks = false
 
 [[on-window-detected]]
-# if.app-id = 'com.microsoft.teams2'
 if.app-name-regex-substring = "Microsoft Teams"
 run = 'move-node-to-workspace M'
+check-further-callbacks = false
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
 run = 'move-node-to-workspace E'
+check-further-callbacks = false
 
 [[on-window-detected]]
 if.app-id = 'org.zotero.zotero'
 run = 'move-node-to-workspace U'
+check-further-callbacks = false
 
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
+if.app-name-regex-substring = "Discord"
 run = 'move-node-to-workspace D'
+check-further-callbacks = false

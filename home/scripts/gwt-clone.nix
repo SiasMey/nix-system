@@ -3,8 +3,8 @@ pkgs.writeShellScriptBin "gwt-clone" ''
   set -e
 
   url=$1
-  basename=\$\{url##*/\}
-  repo_name=\$\{2:-\$\{basename%.*\}\}
+  basename=''${url##*/}
+  repo_name=''${2:-''${basename%.*}}
 
   mkdir "$repo_name"
   cd "$repo_name"
