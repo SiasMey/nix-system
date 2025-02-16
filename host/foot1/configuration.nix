@@ -10,9 +10,9 @@
     ./desktop
     ./gaming
     ./users
-    ./remote-access
     ./scripts
-    ../workloads/virtualization.nix
+    ../workloads/virtualization
+    ../workloads/remote-access
   ];
 
   # Set your time zone.
