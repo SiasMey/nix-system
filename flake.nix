@@ -66,18 +66,14 @@
         ];
       };
 
-      "meysi@foot2" = home-manager.lib.homeManagerConfiguration {
+      "siasm@foot2" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home/users/meysi/foot2.nix
           {
-            home.packages = [
-              inputs.zen-browser.packages.x86_64-linux.default
-              inputs.ghostty.packages.x86_64-linux.default
-            ];
-            home.username = "meysi";
-            home.homeDirectory = "/home/meysi";
+            home.username = "siasm";
+            home.homeDirectory = "/home/siasm";
           }
         ];
       };
