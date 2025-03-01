@@ -14,9 +14,21 @@
     ];
     shell = pkgs.zsh;
   };
-  users.defaultUserShell = pkgs.zsh;
 
-  environment.variables.EDITOR = "nvim";
+  users.users.siasm = {
+    isNormalUser = true;
+    description = "Sias Mey";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    openssh.authorizedKeys.keys = [
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJf6EqaVpGEIepdFSzJ+eZl/F6zACCJObvI5HsKneMVbAAAACnNzaDpnaXRodWI= meysi"
+    ];
+    shell = pkgs.zsh;
+  };
+
+  users.defaultUserShell = pkgs.zsh;
 
   programs.ssh = {
     startAgent = true;
