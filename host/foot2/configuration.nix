@@ -6,10 +6,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./custom-hardware.nix
-    ./users
     ./scripts
     ../workloads/virtualization
     ../workloads/remote-access
+    ../../users
   ];
 
   # Set your time zone.
