@@ -11,8 +11,10 @@
     ./gaming
     ./users
     ./scripts
+    ./sync.nix
     ../workloads/virtualization
     ../workloads/remote-access
+    ../workloads/vpn
   ];
 
   # Set your time zone.

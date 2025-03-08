@@ -8,6 +8,7 @@
     protonup
     lutris
     webcord
+    discord
     winetricks
     wineWowPackages.waylandFull
   ];

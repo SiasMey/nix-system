@@ -207,7 +207,8 @@
       bind = $hyper, N, exec, $focus-or-start ghostty com.mitchellh.ghostty
       # bind = $hyper, E, exec, $focus-or-start firefox firefox
       bind = $hyper, E, exec, $focus-or-start zen zen
-      bind = $hyper, I, exec, $focus-or-start webcord WebCord
+      bind = $hyper, I, exec, $focus-or-start discord discord
+      bind = $hyper, Y, exec, $focus-or-start webcord WebCord
       bind = $hyper, M, exec, $focus-or-start steam steam
       bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
       bind = $mainMod CTRL, f, fullscreen
