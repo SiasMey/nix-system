@@ -20,13 +20,16 @@ local setup_lazydev = function()
 end
 
 local servers = {
-  vale_ls = {
-  },
+  vale_ls = {},
   openscad_lsp = {
     settings = {},
   },
   yamlls = {
-    settings = {},
+    settings = {
+      yaml = {
+        keyOrdering = true,
+      },
+    },
   },
   typos_lsp = {
     init_options = {
@@ -142,7 +145,7 @@ local function setup_conform()
       toml = { "taplo" },
       sh = { "beautysh" },
       json = { "fixjson", "jq" },
-      yaml = { "yq" },
+      -- yaml = { "yq" },
     },
     default_format_opts = {
       lsp_format = "fallback",

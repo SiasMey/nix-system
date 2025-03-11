@@ -1,5 +1,5 @@
 format = """
-[ \uf313 ](fg:4 bg:8)\
+$hostname\
 [\ue0b0](fg:8 bg:0)\
 $directory\
 [\ue0b0](fg:0 bg:8)\
@@ -10,6 +10,13 @@ $character
 """
 
 right_format = """$python$golang$kubernetes"""
+
+[hostname]
+ssh_only = false
+style = "fg:4 bg:8"
+detect_env_vars = ['!TMUX']
+format = '[$hostname]($style)'
+disabled = false
 
 [fill]
 symbol = " "
