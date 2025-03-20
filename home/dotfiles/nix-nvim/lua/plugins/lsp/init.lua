@@ -24,6 +24,7 @@ local servers = {
   openscad_lsp = {
     settings = {},
   },
+  terraformls = {},
   yamlls = {
     settings = {
       yaml = {
