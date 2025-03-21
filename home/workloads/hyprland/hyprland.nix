@@ -6,6 +6,41 @@
 
   programs.waybar = {
     enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+
+        modules-left = ["hyprland/workspaces" "wlr/taskbar"];
+        modules-center = ["hyprland/window"];
+        modules-right = ["load" "wireplumber" "tray" "clock"];
+
+        tray = {
+          icon-size = 20;
+          spacing = 10;
+        };
+
+        "wlr/taskbar" = {
+          format = "{icon}";
+          icon-size = 20;
+          icon-theme = "Numix-Circle";
+          tooltip-format = "{title}";
+          on-click = "activate";
+          on-click-middle = "close";
+          active-first = true;
+        };
+
+        "custom/hello-from-waybar" = {
+          format = "hello {}";
+          max-length = 40;
+          interval = "once";
+          exec = pkgs.writeShellScript "hello-from-waybar" ''
+            echo "from within waybar"
+          '';
+        };
+      };
+    };
   };
 
   services.hypridle = {
