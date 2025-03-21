@@ -74,7 +74,7 @@
       $terminal = ghostty
       $fileManager = dolphin
       $menu = rofi -show drun -show-icons
-      $focus-or-start = ~/.config/hypr/focus-or-start.sh
+      $focus-or-start = focus-or-start
 
       env = XCURSOR_SIZE,24
       env = HYPRCURSOR_SIZE,24

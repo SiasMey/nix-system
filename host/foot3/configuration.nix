@@ -15,6 +15,7 @@
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/vpn
+    ../workloads/flatpak
   ];
 
   # Set your time zone.

@@ -5,12 +5,12 @@
 
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup
-    lutris
-    webcord
+    # protonup
+    # lutris
+    # webcord
     discord
-    winetricks
-    wineWowPackages.waylandFull
+    # winetricks
+    # wineWowPackages.waylandFull
   ];
 
   environment.sessionVariables = {
