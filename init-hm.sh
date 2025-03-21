@@ -2,4 +2,4 @@
 HOST=$(uname -n)
 USER=$(whoami)
 
-nix run home-manager/master -- switch --flake ".#$USER@$HOST"
+nix run home-manager/master -- switch --flake ".#$USER@$HOST" -b bck

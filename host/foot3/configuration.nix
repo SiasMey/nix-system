@@ -37,6 +37,9 @@
     nh
     curl
     jq
+    pciutils
+    just
+    parted
   ];
 
   environment.sessionVariables = {
