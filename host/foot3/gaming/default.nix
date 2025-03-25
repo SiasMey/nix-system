@@ -5,10 +5,10 @@
 
   environment.systemPackages = with pkgs; [
     mangohud
-    # protonup
+    protonup
     # lutris
     # webcord
-    discord
+    # discord
     # winetricks
     # wineWowPackages.waylandFull
   ];

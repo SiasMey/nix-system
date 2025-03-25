@@ -1,7 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -52,4 +56,22 @@
     "nix-command"
     "flakes"
   ];
+
+  security.pam.u2f = {
+    enable = true;
+    settings = {
+      interactive = true;
+      cue = true;
+      origin = "pam://yubi";
+      authFile = pkgs.writeText "u2f-mappings" (lib.concatStrings [
+        "siasm"
+        ":XVxP5mjmm3ez/LRjdvdZzyaVtROQrGQDNRjuD8lcdHO+cjSOSJhuTDZRxvxUAt/4LadBoJPAAIapzD9/lVzsbw==,VPahnBoPo1lGxshvPX3u3zWR0fcRA1Ovh18/IpjNPKd+h/gDS9KrYfOEStO5G5UNPhNQddjUP9a4eyH1TYRyBg==,es256,+presence"
+      ]);
+    };
+  };
+
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
 }
