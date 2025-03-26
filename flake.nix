@@ -12,6 +12,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+    };
   };
 
   outputs = {
@@ -20,6 +26,7 @@
     home-manager,
     zen-browser,
     ghostty,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -35,7 +42,10 @@
       };
       foot3 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [./host/foot3];
+        modules = [
+          ./host/foot3
+          agenix.nixosModules.default
+        ];
       };
     };
 

@@ -16,6 +16,7 @@
     ./users
     ./scripts
     ./sync.nix
+    ./secrets.nix
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/vpn
@@ -62,11 +63,11 @@
     settings = {
       interactive = true;
       cue = true;
-      origin = "pam://yubi";
-      authFile = pkgs.writeText "u2f-mappings" (lib.concatStrings [
-        "siasm"
-        ":XVxP5mjmm3ez/LRjdvdZzyaVtROQrGQDNRjuD8lcdHO+cjSOSJhuTDZRxvxUAt/4LadBoJPAAIapzD9/lVzsbw==,VPahnBoPo1lGxshvPX3u3zWR0fcRA1Ovh18/IpjNPKd+h/gDS9KrYfOEStO5G5UNPhNQddjUP9a4eyH1TYRyBg==,es256,+presence"
-      ]);
+      # origin = "pam://yubi";
+      # authFile = pkgs.writeText "u2f-mappings" (lib.concatStrings [
+      #   "siasm"
+      #   ":XVxP5mjmm3ez/LRjdvdZzyaVtROQrGQDNRjuD8lcdHO+cjSOSJhuTDZRxvxUAt/4LadBoJPAAIapzD9/lVzsbw==,VPahnBoPo1lGxshvPX3u3zWR0fcRA1Ovh18/IpjNPKd+h/gDS9KrYfOEStO5G5UNPhNQddjUP9a4eyH1TYRyBg==,es256,+presence"
+      # ]);
     };
   };
 
@@ -74,4 +75,9 @@
     login.u2fAuth = true;
     sudo.u2fAuth = true;
   };
+
+  nix.extraOptions = ''
+    extra-substituters = https://devenv.cachix.org
+    extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
+  '';
 }
