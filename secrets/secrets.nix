@@ -7,4 +7,7 @@ let
   systems = [foot2 foot3];
 in {
   "secret.age".publicKeys = users ++ systems;
+  "backup-pass-immich.age".publicKeys = users ++ systems;
+  "backup-pass-syncthing.age".publicKeys = users ++ systems;
+  "backup-key.age".publicKeys = users ++ systems;
 }

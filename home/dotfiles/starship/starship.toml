@@ -12,10 +12,10 @@ $character
 right_format = """$python$golang$kubernetes"""
 
 [hostname]
-ssh_only = false
+ssh_only = true
 style = "fg:4 bg:8"
-detect_env_vars = ['!TMUX']
-format = '[$hostname]($style)'
+detect_env_vars = ["!TMUX"]
+format = '[$ssh_symbol$hostname]($style)'
 disabled = false
 
 [fill]

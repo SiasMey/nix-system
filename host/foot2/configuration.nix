@@ -6,9 +6,17 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./custom-hardware.nix
+    ./load-credentials.nix
     ./scripts
+    ./file-backup
+    ./bookmark-sync
     ../workloads/virtualization
     ../workloads/remote-access
+    ../workloads/file-sync
+    ../workloads/image-backup
+    ../workloads/vpn
+    ../workloads/rss-feed
+    ../workloads/audiobooks
     ../../users
   ];
 
@@ -29,7 +37,10 @@
 
   environment.systemPackages = with pkgs; [
     git
+    bws
   ];
+
+  environment.enableAllTerminfo = true;
 
   networking.firewall.enable = false;
 
@@ -39,4 +50,8 @@
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  age.secrets.backup-pass-immich.file = ../../secrets/backup-pass-immich.age;
+  age.secrets.backup-pass-syncthing.file = ../../secrets/backup-pass-syncthing.age;
+  age.secrets.backup-key.file = ../../secrets/backup-key.age;
 }

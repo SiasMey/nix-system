@@ -17,14 +17,6 @@
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJf6EqaVpGEIepdFSzJ+eZl/F6zACCJObvI5HsKneMVbAAAACnNzaDpnaXRodWI= meysi"
     ];
     shell = pkgs.zsh;
-
-    programs.ssh = {
-      startAgent = true;
-      extraConfig = ''
-        Host *
-          IdentityFile ${config.age.secrets.secret1.path}
-      '';
-    };
   };
 
   users.users.siasm = {
@@ -38,15 +30,10 @@
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJf6EqaVpGEIepdFSzJ+eZl/F6zACCJObvI5HsKneMVbAAAACnNzaDpnaXRodWI= meysi"
     ];
     shell = pkgs.zsh;
-
-    programs.ssh = {
-      startAgent = true;
-      extraConfig = ''
-        Host *
-          IdentityFile ${config.age.secrets.secret1.path}
-      '';
-    };
   };
 
+  programs.ssh = {
+    startAgent = true;
+  };
   users.defaultUserShell = pkgs.zsh;
 }

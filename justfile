@@ -51,6 +51,10 @@ check:
 clean:
     nh clean all --keep-since 7d
 
+[working-directory('secrets')]
+create-secret secret_name:
+    sudo nix run github:ryantm/agenix -- {{ secret_name }}.age -i /etc/ssh/ssh_host_ed25519_key
+
 fix-mac:
     # Nix
     # if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then

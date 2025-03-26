@@ -38,7 +38,10 @@
       };
       foot2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [./host/foot2];
+        modules = [
+          ./host/foot2
+          agenix.nixosModules.default
+        ];
       };
       foot3 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
