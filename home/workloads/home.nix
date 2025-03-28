@@ -12,10 +12,6 @@
     # MANPAGER = "ov --section-delimiter '^[^\s]' --section-header";  # better colours first
   };
 
-  home.file = {
-    ".config/ov/config.yaml".source = ../dotfiles/ov/config.yaml;
-  };
-
   home.packages = [
     pkgs.atuin
     pkgs.bottom
@@ -37,6 +33,8 @@
   ];
 
   home.file = {
+    ".config/ov/config.yaml".source = ../dotfiles/ov/config.yaml;
+    ".config/bottom/bottom.toml".source = ../dotfiles/bottom/bottom.toml;
     ".config/starship.toml".source = ../dotfiles/starship/starship.toml;
     ".config/tmux/theme.conf".source = ../dotfiles/tmux/theme.conf;
   };
