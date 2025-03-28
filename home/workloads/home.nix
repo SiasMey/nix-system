@@ -8,6 +8,11 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     MANPAGER = "bat -l man -p";
+    PAGER = "ov";
+  };
+
+  home.file = {
+    ".config/ov/config.yaml".source = ../dotfiles/ov/config.yaml;
   };
 
   home.packages = [
@@ -27,6 +32,7 @@
     pkgs.zig
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.vacuum-go
+    pkgs.ov
   ];
 
   home.file = {
