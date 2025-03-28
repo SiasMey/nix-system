@@ -9,6 +9,7 @@
     EDITOR = "nvim";
     MANPAGER = "bat -l man -p";
     PAGER = "ov";
+    # MANPAGER = "ov --section-delimiter '^[^\s]' --section-header";  # better colours first
   };
 
   home.file = {
