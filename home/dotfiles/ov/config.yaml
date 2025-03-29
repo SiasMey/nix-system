@@ -239,7 +239,7 @@ KeyBind:
   multi_color:
     - "."
   jump_target:
-  #   - "m"
+     - "m"
   plain_mode:
     - "ctrl+e"
   rainbow_mode:
