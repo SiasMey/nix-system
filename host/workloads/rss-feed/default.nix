@@ -1,9 +1,9 @@
 {...}: {
-  services.freshrss = {
-    enable = true;
-    authType = "none";
-    baseUrl = "http://192.168.68.200";
-  };
+  # services.freshrss = {
+  #   enable = true;
+  #   authType = "none";
+  #   baseUrl = "http://192.168.68.200";
+  # };
   # services.miniflux = {
   #   enable = true;
   #   config = {

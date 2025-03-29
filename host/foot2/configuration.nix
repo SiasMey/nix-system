@@ -10,6 +10,7 @@
     ./scripts
     ./file-backup
     ./bookmark-sync
+    ./reverse-proxy
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/file-sync
