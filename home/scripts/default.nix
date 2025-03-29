@@ -8,5 +8,7 @@
     (import ./palette.nix {inherit pkgs;})
     (import ./gwt-clone.nix {inherit pkgs;})
     (import ./git-update-branch.nix {inherit pkgs;})
+    (import ./ts.nix {inherit pkgs;})
+    (import ./tmux-sessionizer.nix {inherit pkgs;})
   ];
 }
