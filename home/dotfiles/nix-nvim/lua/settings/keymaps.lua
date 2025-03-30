@@ -89,3 +89,17 @@ vim.keymap.set(
   ":silent !tmux neww -n commit -c $(pwd) git commit<Enter>",
   { desc = "Git: Create git commit" }
 )
+
+vim.keymap.set("n", "<space>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "<c-m>", vim.lsp.buf.hover)
+vim.keymap.set({ "n", "i" }, "<c-e>", vim.lsp.buf.signature_help)
+vim.keymap.set({ "n", "v" }, "<space>c", vim.lsp.buf.code_action)
+vim.keymap.set({ "n", "v" }, "<space>f", function()
+  require("conform").format({})
+end)
+vim.keymap.set("n", "<space>n", vim.lsp.buf.rename)

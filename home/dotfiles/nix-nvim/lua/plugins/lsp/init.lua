@@ -157,7 +157,7 @@ end
 local M = {}
 M.setup = function()
   setup_lazydev()
-  setup_nvim_lsp()
+  -- setup_nvim_lsp()
   setup_conform()
 end
 return M

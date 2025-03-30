@@ -1,13 +1,13 @@
 local M = {}
 
-local function toggle_inlay()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = 0 })
-end
-
 local function enable_workspace_diagnostics()
   for _, lsp_client in ipairs(vim.lsp.get_clients()) do
     require("workspace-diagnostics").populate_workspace_diagnostics(lsp_client, 0)
   end
+end
+
+local function toggle_inlay()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = 0 })
 end
 
 function M.on_attach(client, buffer)

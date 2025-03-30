@@ -82,13 +82,6 @@ in {
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      cmp-buffer
-      cmp-cmdline
-      cmp_luasnip
-      cmp-nvim-lsp
-      cmp-nvim-lsp-signature-help
-      cmp-nvim-lua
-      cmp-path
       conform-nvim
       fzf-lua
       git-conflict-nvim
@@ -106,8 +99,7 @@ in {
       mini-nvim
       neogen
       neo-solarized-nvim
-      nvim-cmp
-      nvim-lspconfig
+      blink-cmp
       nvim-notify
       nvim-treehopper
       nvim-treesitter-context
