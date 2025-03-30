@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   workspace-diagnostics = pkgs.vimUtils.buildVimPlugin {
     name = "workspace-diagnostics.nvim";
     src = pkgs.fetchFromGitHub {
@@ -26,14 +27,13 @@
       hash = "sha256-mZll6RsA11oJYKnbV6K/oAWr+l+8vNXc+X44zplWq8s=";
     };
   };
-in {
+in
+{
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
   home.packages = [
-    # # Language Servers
-    # # Language tools
     pkgs.alejandra
     pkgs.ast-grep
     pkgs.basedpyright
@@ -51,7 +51,6 @@ in {
     pkgs.marksman
     pkgs.mdformat
     pkgs.mermaid-cli
-    pkgs.nil
     pkgs.nixfmt-rfc-style
     pkgs.nufmt
     pkgs.openscad-lsp
@@ -63,8 +62,14 @@ in {
     pkgs.uv
     pkgs.yaml-language-server
     pkgs.yq-go
-    (pkgs.vale.withStyles (s: [s.google s.alex s.write-good s.proselint]))
+    (pkgs.vale.withStyles (s: [
+      s.google
+      s.alex
+      s.write-good
+      s.proselint
+    ]))
     pkgs.vale-ls
+    pkgs.nixd
   ];
 
   programs.fzf = {
