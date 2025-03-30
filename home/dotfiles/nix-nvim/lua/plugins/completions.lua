@@ -114,12 +114,14 @@ local setup_blink = function()
       preset = "none",
       ["<C-l>"] = { "select_prev", "fallback" },
       ["<C-h>"] = { "select_next", "fallback" },
+      ["<C-j>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-k>"] = { "scroll_documentation_down", "fallback" },
       ["<C-n>"] = { "cancel", "fallback" },
       ["<C-y>"] = { "select_and_accept", "fallback" },
     },
 
     -- (Default) Only show the documentation popup when manually triggered
-    completion = { documentation = { auto_show = false } },
+    completion = { documentation = { auto_show = true } },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
