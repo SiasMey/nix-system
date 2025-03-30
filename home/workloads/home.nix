@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   fonts.fontconfig = {
@@ -37,6 +38,7 @@
     ".config/bottom/bottom.toml".source = ../dotfiles/bottom/bottom.toml;
     ".config/starship.toml".source = ../dotfiles/starship/starship.toml;
     ".config/tmux/theme.conf".source = ../dotfiles/tmux/theme.conf;
+    ".config/direnv/direnvrc".source = ../dotfiles/direnv/direnvrc;
   };
 
   programs.home-manager.enable = true;
