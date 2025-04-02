@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   #podman needs to be installed via homebrew on mac
   #ghostty needs to be installed via homebrew on mac
   home.packages = [
@@ -10,6 +11,6 @@
   ];
 
   home.file = {
-    ".config/aerospace".source = ../dotfiles/aerospace;
+    ".config/aerospace".source = ../../dotfiles/aerospace;
   };
 }
