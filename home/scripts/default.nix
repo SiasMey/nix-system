@@ -12,5 +12,7 @@
     (import ./ts.nix { inherit pkgs; })
     (import ./tmux-sessionizer.nix { inherit pkgs; })
     (import ./gwt-add.nix { inherit pkgs; })
+    (import ./tmux-test.nix { inherit pkgs; })
+    (import ./tmux-cd-pwd.nix { inherit pkgs; })
   ];
 }
