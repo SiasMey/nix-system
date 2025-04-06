@@ -16,7 +16,7 @@ vim.lsp.config.nix = {
         },
       },
       formatting = {
-        command = { "nixfmt" },
+        command = { "alejandra" },
       },
     },
   },
