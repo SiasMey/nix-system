@@ -5,7 +5,6 @@ vim.lsp.config.basedpyright = {
     "pyrightconfig.json",
     "setup.py",
     "setup.cfg",
-    "requirements.txt",
     ".git",
   },
   cmd = { "basedpyright-langserver", "--stdio" },

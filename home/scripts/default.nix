@@ -7,12 +7,15 @@
     (import ./vt.nix { inherit pkgs; })
     (import ./vm.nix { inherit pkgs; })
     (import ./palette.nix { inherit pkgs; })
-    (import ./gwt-clone.nix { inherit pkgs; })
     (import ./git-update-branch.nix { inherit pkgs; })
     (import ./ts.nix { inherit pkgs; })
     (import ./tmux-sessionizer.nix { inherit pkgs; })
-    (import ./gwt-add.nix { inherit pkgs; })
     (import ./tmux-test.nix { inherit pkgs; })
     (import ./tmux-cd-pwd.nix { inherit pkgs; })
+    (import ./gwt-clone.nix { inherit pkgs; })
+    (import ./gwt-add.nix { inherit pkgs; })
+    (import ./jws-clone.nix { inherit pkgs; })
+    (import ./jws-add.nix { inherit pkgs; })
+    (import ./jws-bs.nix { inherit pkgs; })
   ];
 }
