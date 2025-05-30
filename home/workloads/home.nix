@@ -31,6 +31,8 @@
     pkgs.nerd-fonts.jetbrains-mono
     pkgs.vacuum-go
     pkgs.ov
+    pkgs.jujutsu
+    pkgs.jjui
   ];
 
   home.file = {
@@ -102,7 +104,6 @@
 
   programs.lsd = {
     enable = true;
-    enableAliases = true;
   };
 
   programs.nh = {
