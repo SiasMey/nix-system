@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   fonts.fontconfig = {
@@ -33,6 +32,7 @@
     pkgs.ov
     pkgs.jujutsu
     pkgs.jjui
+    pkgs.libation
   ];
 
   home.file = {

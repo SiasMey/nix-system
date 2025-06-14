@@ -1,11 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -21,6 +17,7 @@
     ../workloads/remote-access
     ../workloads/vpn
     ../workloads/flatpak
+    ../workloads/cad
   ];
 
   # Set your time zone.
@@ -46,6 +43,7 @@
     pciutils
     just
     parted
+    unzip
   ];
 
   environment.sessionVariables = {
@@ -80,4 +78,8 @@
     extra-substituters = https://devenv.cachix.org
     extra-trusted-public-keys = devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
   '';
+
+  workloads.cad = {
+    enabled = true;
+  };
 }

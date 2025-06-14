@@ -10,11 +10,11 @@ in {
     enabled = lib.mkEnableOption "Enable Module";
   };
   config = lib.mkIf cfg.enabled {
-    home.packages = [
-      pkgs.orca-slicer
-      pkgs.freecad-wayland
-      pkgs.openscad
-      pkgs.openscad-lsp
+    environment.systemPackages = with pkgs; [
+      orca-slicer
+      freecad-wayland
+      openscad
+      openscad-lsp
     ];
   };
 }

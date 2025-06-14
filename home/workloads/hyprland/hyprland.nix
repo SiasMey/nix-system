@@ -238,9 +238,9 @@
       bind = $mainMod, F, exec, $fileManager
       bind = $mainMod SHIFT, E , exit,
 
-      # bind = $hyper, N, exec, $focus-or-start alacritty Alacritty
+      bind = $hyper, L, exec, $focus-or-start orca-slicer OrcaSlicer
       bind = $hyper, N, exec, $focus-or-start ghostty com.mitchellh.ghostty
-      # bind = $hyper, E, exec, $focus-or-start firefox firefox
+      bind = $hyper, H, exec, $focus-or-start freecad org.freecad.FreeCAD
       bind = $hyper, E, exec, $focus-or-start zen zen
       bind = $hyper, I, exec, $focus-or-start discord discord
       bind = $hyper, Y, exec, $focus-or-start webcord WebCord
@@ -300,6 +300,8 @@
       windowrulev2 = workspace 2,class:^(zen)$
       windowrulev2 = workspace 3,class:^(discord)$
       windowrulev2 = workspace 3,class:^(WebCord)$
+      windowrulev2 = workspace 4,class:^(org.freecad.FreeCAD)$
+      windowrulev2 = workspace 4,class:^(OrcaSlicer)$
       windowrulev2 = workspace 5,class:^(steam)$
       windowrulev2 = workspace 6,class:^(net.lutris.Lutris)$
 
