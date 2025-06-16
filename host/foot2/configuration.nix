@@ -39,6 +39,7 @@
   environment.systemPackages = with pkgs; [
     git
     bws
+    nss.tools
   ];
 
   environment.enableAllTerminfo = true;
