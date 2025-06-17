@@ -17,5 +17,6 @@
     (import ./jws-clone.nix { inherit pkgs; })
     (import ./jws-add.nix { inherit pkgs; })
     (import ./jws-bs.nix { inherit pkgs; })
+    (import ./jws-fetch.nix { inherit pkgs; })
   ];
 }

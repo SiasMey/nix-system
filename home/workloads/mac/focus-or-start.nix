@@ -5,8 +5,8 @@ pkgs.writeShellApplication {
   runtimeInputs = [ pkgs.jq ];
 
   text = ''
-    WINDOW_ID=$(aerospace list-windows --all --json | jq -r ".[] | select(.[\"app-name\"]==\"$2\") | .[\"window-id\"]")
-    WORKSPACE_WINDOW_ID=$(aerospace list-windows --workspace focused --json | jq -r ".[] | select(.[\"app-name\"]==\"$2\") | .[\"window-id\"]")
+    WINDOW_ID=$(aerospace list-windows --all --json | jq -r ".[] | select(.[\"app-name\"]==\"$2\") | .[\"window-id\"]" | head -n 1 )
+    WORKSPACE_WINDOW_ID=$(aerospace list-windows --workspace focused --json | jq -r ".[] | select(.[\"app-name\"]==\"$2\") | .[\"window-id\"]" | head -n 1 )
 
     if [ -n "$WORKSPACE_WINDOW_ID" ]; then
       aerospace focus --boundaries-action wrap-around-the-workspace right

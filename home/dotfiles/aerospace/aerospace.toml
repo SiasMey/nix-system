@@ -98,7 +98,7 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 cmd-alt-ctrl-shift-n = 'exec-and-forget ~/.nix-profile/bin/focus-or-start /Applications/Ghostty.app Ghostty'
-cmd-alt-ctrl-shift-e = 'exec-and-forget ~/.nix-profile/bin/focus-or-start /Applications/Arc.app Arc'
+cmd-alt-ctrl-shift-e = 'exec-and-forget ~/.nix-profile/bin/focus-or-start "/Applications/Zen Browser.app" Zen'
 cmd-alt-ctrl-shift-i = 'exec-and-forget ~/.nix-profile/bin/focus-or-start /Applications/Slack.app Slack'
 cmd-alt-ctrl-shift-y = 'exec-and-forget ~/.nix-profile/bin/focus-or-start /Applications/Discord.app Discord'
 cmd-alt-ctrl-shift-o = 'exec-and-forget ~/.nix-profile/bin/focus-or-start "/Applications/Microsoft Teams.app" "Microsoft Teams"'
