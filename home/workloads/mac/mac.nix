@@ -8,6 +8,7 @@
     pkgs.docker-compose
     pkgs.awscli2
     pkgs.terraform
+    pkgs.podman-compose
   ];
 
   home.file = {
