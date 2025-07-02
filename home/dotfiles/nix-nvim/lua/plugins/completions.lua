@@ -38,12 +38,12 @@ local setup_cmp = function()
       }),
     },
     sources = {
-      { name = "nvim_lsp",               group_index = 1, max_item_count = 25 },
-      { name = "git",                    group_index = 1, max_item_count = 5 },
-      { name = "buffer",                 group_index = 1, max_item_count = 3, keyword_length = 5 },
-      { name = "path",                   group_index = 1, max_item_count = 3 },
-      { name = "luasnip",                group_index = 1, max_item_count = 5 },
-      { name = "lazydev",                group_index = 2, max_item_count = 15 },
+      { name = "nvim_lsp", group_index = 1, max_item_count = 25 },
+      { name = "git", group_index = 1, max_item_count = 5 },
+      { name = "buffer", group_index = 1, max_item_count = 3, keyword_length = 5 },
+      { name = "path", group_index = 1, max_item_count = 3 },
+      { name = "luasnip", group_index = 1, max_item_count = 5 },
+      { name = "lazydev", group_index = 2, max_item_count = 15 },
       { name = "nvim_lsp_signature_help" },
     },
     snippet = {
@@ -127,6 +127,11 @@ local setup_blink = function()
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { "lsp", "path", "buffer" },
+    },
+
+    cmdline = {
+      keymap = { preset = "inherit" },
+      completion = { menu = { auto_show = true } },
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

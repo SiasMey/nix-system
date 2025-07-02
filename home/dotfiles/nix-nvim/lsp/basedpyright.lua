@@ -7,6 +7,7 @@ vim.lsp.config.basedpyright = {
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
+      disableLanguageServices = false,
       analysis = {
         autoImportCompletions = false,
         useLibraryCodeForTypes = false,

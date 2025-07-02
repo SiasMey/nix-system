@@ -54,8 +54,8 @@ vim.keymap.set("n", "<space>b", ":silent make %<Enter>")
 vim.keymap.set("n", "<space>p", ":silent make .<Enter>")
 vim.keymap.set("n", "<space>tt", ":silent TmuxTest<Enter>")
 
-vim.keymap.set("n", "<M-j>", ":cprev<Enter>")
-vim.keymap.set("n", "<M-k>", ":cnext<Enter>")
+vim.keymap.set("n", "<M-j>", ":silent cprev<Enter>")
+vim.keymap.set("n", "<M-k>", ":silent cnext<Enter>")
 
 vim.keymap.set("o", "i_", ":<c-u>silent! normal! t_T_vt_<cr>", { desc = "Inside _" })
 vim.keymap.set("o", "a_", ":<c-u>silent! normal! f_F_vf_<cr>", { desc = "Around _" })

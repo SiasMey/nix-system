@@ -162,7 +162,7 @@ local function setup_grug_far()
   require("grug-far").setup({
     {
       astgrep = {
-        path = "sg",
+        -- path = "sg",
         extraArgs = "",
         placeholders = {
           enabled = true,
@@ -175,14 +175,52 @@ local function setup_grug_far()
           paths = "ex: /foo/bar   ../   ./hello\\ world/   ./src/foo.lua   ~/.config",
         },
       },
+      ["astgrep-rules"] = {
+        path = "ast-grep",
+
+        -- extra args that you always want to pass
+        -- like for example if you always want context lines around matches
+        extraArgs = "",
+
+        -- ast-grep docs:
+        -- https://ast-grep.github.io/reference/sgconfig.html#languageglobs
+        languageGlobs = {},
+
+        -- placeholders to show in input areas when they are empty
+        -- set individual ones to '' to disable, or set enabled = false for complete disable
+        placeholders = {
+          -- whether to show placeholders
+          enabled = true,
+
+          --  rules would normally be multi-line, but we don't support multi-line
+          --  placeholders. rules is filled with a default-value though, so it's
+          --  rare to see it empty
+          rules = "e.g. id: my_rule_1 \\n language: lua\\nrule: \\n  pattern: await $A",
+          filesFilter = "e.g. *.lua   *.{css,js}   **/docs/*.md   (specify one per line, filters via ripgrep)",
+          flags = "e.g. --help (-h) --debug-query=ast --strictness=<STRICTNESS>",
+          paths = "e.g. /foo/bar   ../   ./hello\\ world/   ./src/foo.lua   ~/.config",
+        },
+        -- defaults to fill into the inputs when loading or switching to this engine
+        -- they only apply when non-nil
+        defaults = {
+          rules = nil,
+          filesFilter = nil,
+          flags = nil,
+          paths = nil,
+        },
+      },
     },
     engine = "astgrep",
   })
-  local function grug_file()
-    require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+  local function grug_file_pattern()
+    require("grug-far").open({ prefills = { paths = vim.fn.expand("%") }, engine = "astgrep" })
+  end
+  local function grug_file_rule()
+    require("grug-far").open({ prefills = { paths = vim.fn.expand("%") }, engine = "astgrep-rules" })
   end
 
-  vim.keymap.set({ "n" }, "<leader>sr", grug_file, { desc = "Structural find and replace" })
+  vim.keymap.set({ "n" }, "<leader>srr", grug_file_rule, { desc = "Structural find and replace" })
+  vim.keymap.set({ "n" }, "<leader>srp", grug_file_pattern, { desc = "Structural find and replace" })
 end
 
 local M = {}
