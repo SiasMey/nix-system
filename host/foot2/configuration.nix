@@ -6,11 +6,13 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./custom-hardware.nix
-    ./load-credentials.nix
+    # ./load-credentials.nix
     ./scripts
     ./file-backup
     ./bookmark-sync
     ./reverse-proxy
+    ./authn
+    ./projects
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/file-sync
@@ -40,11 +42,19 @@
     git
     bws
     nss.tools
+    authelia
+    openssl
+    pocket-id
   ];
 
   environment.enableAllTerminfo = true;
 
   networking.firewall.enable = false;
+  # networking.extraHosts = ''
+  #   127.0.0.1 auth.dwarf-foot.dev
+  #   127.0.0.1 bookmarks.dwarf-foot.dev
+  #   127.0.0.1 projects.dwarf-foot.dev
+  # '';
 
   nix.settings.experimental-features = [
     "flakes"

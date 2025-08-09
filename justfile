@@ -13,11 +13,13 @@ alias uc := update_commit
 
 # Build nixos
 build_os:
-    nh os build . -H {{ host }}
+    # nh os build . -H {{ host }}
+    nixos-rebuild build --flake ".#{{ host }}"
 
 # Build nixos
 switch_os:
-    nh os switch . -H {{ host }}
+    # nh os switch . -H {{ host }}
+    sudo nixos-rebuild switch --flake ".#{{ host }}"
 
 # Switch home-manager
 home_switch:
