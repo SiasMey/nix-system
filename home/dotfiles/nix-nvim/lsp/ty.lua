@@ -7,7 +7,7 @@ vim.lsp.config.ty = {
   settings = {
     python = {
       ty = {
-        disableLanguageServices = true
+        disableLanguageServices = false
       },
     },
   },

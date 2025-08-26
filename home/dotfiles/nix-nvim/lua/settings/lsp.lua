@@ -1,13 +1,17 @@
-vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff" })
+vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff", "ty" })
 
 vim.lsp.config("*", {
-  root_markers = { ".git" },
+  root_markers = { ".git", ".jj" },
 })
 
 local function enable_workspace_diagnostics()
   for _, lsp_client in ipairs(vim.lsp.get_clients()) do
     require("workspace-diagnostics").populate_workspace_diagnostics(lsp_client, 0)
   end
+end
+
+local function toggle_diagnostics()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled(), { bufnr = 0 })
 end
 
 local function toggle_inlay()
@@ -41,6 +45,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", "<space>i", "<Nop>")
     end
 
-    vim.keymap.set("n", "<space>D", enable_workspace_diagnostics)
+    vim.keymap.set("n", "<space>D", toggle_diagnostics)
   end,
 })
