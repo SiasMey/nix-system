@@ -41,6 +41,7 @@
     ".config/starship.toml".source = ../dotfiles/starship/starship.toml;
     ".config/tmux/theme.conf".source = ../dotfiles/tmux/theme.conf;
     ".config/direnv/direnvrc".source = ../dotfiles/direnv/direnvrc;
+    ".config/jj/config.toml".source = ../dotfiles/jj/config.toml;
   };
 
   programs.home-manager.enable = true;

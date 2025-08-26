@@ -1,0 +1,13 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Sias Mey"
+email = "siasmey@gmail.com"
+
+[git]
+push-bookmark-prefix = "sm/"
+
+[ui]
+default-command = ["log", "--revisions", "..@", "--limit", "10"]
+paginate = "never"
+dif-editor = ":builtin"
