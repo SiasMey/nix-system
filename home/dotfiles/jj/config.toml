@@ -11,3 +11,9 @@ push-bookmark-prefix = "sm/"
 default-command = ["log", "--revisions", "ancestors(@) & mutable()"]
 paginate = "never"
 dif-editor = ":builtin"
+
+[template-aliases]
+'log_pr_summary' = '''" - "++self.description().first_line()++"\n"'''
+
+[aliases]
+pr-summary = ["log", "--no-graph", "-r", "..@ & mutable()", "-T", "log_pr_summary"]
