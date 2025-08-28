@@ -8,6 +8,6 @@ email = "siasmey@gmail.com"
 push-bookmark-prefix = "sm/"
 
 [ui]
-default-command = ["log", "--revisions", "..@", "--limit", "10"]
+default-command = ["log", "--revisions", "ancestors(@) & mutable()"]
 paginate = "never"
 dif-editor = ":builtin"
