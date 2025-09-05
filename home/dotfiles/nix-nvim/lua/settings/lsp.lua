@@ -1,4 +1,4 @@
-vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff", "ty" })
+vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff" })
 
 vim.lsp.config("*", {
   root_markers = { ".git", ".jj" },
