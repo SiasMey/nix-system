@@ -1,4 +1,4 @@
-vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff", "rust_analyzer", "gopls" })
+vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff", "rust_analyzer", "gopls", "ast_grep" })
 
 vim.lsp.config("*", {
   root_markers = { ".git", ".jj" },
@@ -106,6 +106,14 @@ vim.lsp.config.ty = {
       },
     },
   },
+}
+
+vim.lsp.config.ast_grep = {
+  filetypes = { "python", "go", "rust" },
+  root_markers = {
+    "sgconfig.yml",
+  },
+  cmd = { "ast-grep", "lsp" },
 }
 
 vim.lsp.config.rust_analyzer = {

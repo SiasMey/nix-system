@@ -5,7 +5,7 @@ name = "Sias Mey"
 email = "siasmey@gmail.com"
 
 [git]
-push-bookmark-prefix = "sm/"
+# push-bookmark-prefix = "sm/"
 
 [ui]
 default-command = ["log", "--revisions", "ancestors(@) & mutable()"]

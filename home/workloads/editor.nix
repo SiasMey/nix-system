@@ -57,6 +57,7 @@ in {
     pkgs.terraform-ls
     pkgs.typos-lsp
     pkgs.uv
+    pkgs.just-lsp
     pkgs.yaml-language-server
     pkgs.yq-go
     (pkgs.vale.withStyles (s: [

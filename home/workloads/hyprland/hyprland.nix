@@ -4,6 +4,11 @@
     pkgs.hyprpicker
   ];
 
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.waybar = {
     enable = true;
     settings = {
