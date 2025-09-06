@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
@@ -24,7 +23,6 @@
     self,
     nixpkgs,
     home-manager,
-    zen-browser,
     ghostty,
     agenix,
     ...
@@ -74,7 +72,6 @@
           ./home/users/meysi/foot1.nix
           {
             home.packages = [
-              inputs.zen-browser.packages.x86_64-linux.default
               inputs.ghostty.packages.x86_64-linux.default
             ];
             home.username = "meysi";
@@ -90,7 +87,6 @@
           ./home/users/siasm/foot3.nix
           {
             home.packages = [
-              inputs.zen-browser.packages.x86_64-linux.default
               inputs.ghostty.packages.x86_64-linux.default
             ];
             home.username = "siasm";
