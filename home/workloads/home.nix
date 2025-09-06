@@ -84,7 +84,7 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ../dotfiles/zsh/zshrc;
+    initContent = builtins.readFile ../dotfiles/zsh/zshrc;
   };
 
   programs.starship = {

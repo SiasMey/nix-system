@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   workspace-diagnostics = pkgs.vimUtils.buildVimPlugin {
     name = "workspace-diagnostics.nvim";
     src = pkgs.fetchFromGitHub {
@@ -27,8 +26,7 @@ let
       hash = "sha256-mZll6RsA11oJYKnbV6K/oAWr+l+8vNXc+X44zplWq8s=";
     };
   };
-in
-{
+in {
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -36,7 +34,6 @@ in
   home.packages = [
     pkgs.alejandra
     pkgs.ast-grep
-    pkgs.basedpyright
     pkgs.bash-language-server
     pkgs.beautysh
     pkgs.d2
@@ -89,8 +86,6 @@ in
     plugins = with pkgs.vimPlugins; [
       conform-nvim
       fzf-lua
-      git-conflict-nvim
-      gitsigns-nvim
       grug-far-nvim
       harpoon2
       hop-nvim
