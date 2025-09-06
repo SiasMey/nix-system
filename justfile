@@ -61,3 +61,9 @@ fix-mac:
     #   source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
     # fi
     # End Nix
+
+flatpak-list:
+    flatpak list --app --columns=origin --columns=application | awk '{print "flatpak install " $1,$2 " -y"}' > ./flatpaks.sh
+
+flatpak-update:
+    flatpack update
