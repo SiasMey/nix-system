@@ -241,9 +241,8 @@
       bind = $hyper, L, exec, $focus-or-start orca-slicer OrcaSlicer
       bind = $hyper, N, exec, $focus-or-start ghostty com.mitchellh.ghostty
       bind = $hyper, H, exec, $focus-or-start freecad org.freecad.FreeCAD
-      bind = $hyper, E, exec, $focus-or-start zen zen
-      bind = $hyper, I, exec, $focus-or-start discord discord
-      bind = $hyper, Y, exec, $focus-or-start webcord WebCord
+      bind = $hyper, E, exec, $focus-or-start "flatpak run app.zen_browser.zen" zen
+      bind = $hyper, I, exec, $focus-or-start "flatpak run com.discordapp.Discord" discord
       bind = $hyper, M, exec, $focus-or-start steam steam
       bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
       bind = $mainMod CTRL, f, fullscreen
