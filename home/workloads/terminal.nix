@@ -8,6 +8,11 @@
     ".config/alacritty/themes/theme.toml".source = ../dotfiles/alacritty/solarized_light.toml;
   };
 
+  programs.ghostty = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.alacritty = {
     enable = false;
     settings = {

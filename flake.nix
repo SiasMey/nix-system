@@ -71,9 +71,9 @@
         modules = [
           ./home/users/meysi/foot1.nix
           {
-            home.packages = [
-              inputs.ghostty.packages.x86_64-linux.default
-            ];
+            # home.packages = [
+            #   inputs.ghostty.packages.x86_64-linux.default
+            # ];
             home.username = "meysi";
             home.homeDirectory = "/home/meysi";
           }
@@ -87,7 +87,7 @@
           ./home/users/siasm/foot3.nix
           {
             home.packages = [
-              inputs.ghostty.packages.x86_64-linux.default
+              # inputs.ghostty.packages.x86_64-linux.default
             ];
             home.username = "siasm";
             home.homeDirectory = "/home/siasm";
