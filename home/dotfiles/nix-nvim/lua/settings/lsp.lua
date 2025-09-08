@@ -142,19 +142,34 @@ vim.lsp.config.rust_analyzer = {
   cmd = { "rust-analyzer" },
   settings = {
     ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
       cargo = {
-        buildScripts = {
-          enable = true,
+        allFeatures = true,
+        loadOutDirsFromCheck = true,
+        runBuildScripts = true,
+      },
+      -- Add clippy lints for Rust.
+      checkOnSave = true,
+      check = {
+        allFeatures = true,
+        command = "clippy",
+        extraArgs = {
+          "--",
+          "--no-deps",
+          "-Dclippy::correctness",
+          "-Dclippy::complexity",
+          "-Wclippy::suspicious",
+          "-Wclippy::perf",
+          "-Wclippy::pedantic",
+          "-Wclippy::style",
         },
       },
       procMacro = {
         enable = true,
+        ignored = {
+          ["async-trait"] = { "async_trait" },
+          ["napi-derive"] = { "napi" },
+          ["async-recursion"] = { "async_recursion" },
+        },
       },
     },
   },
