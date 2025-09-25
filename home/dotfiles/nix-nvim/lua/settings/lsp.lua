@@ -1,4 +1,15 @@
-vim.lsp.enable({ "luals", "nix", "spelling", "writing", "basedpyright", "ruff", "rust_analyzer", "gopls", "ast_grep" })
+vim.lsp.enable({
+  "luals",
+  "nix",
+  "spelling",
+  "writing",
+  "basedpyright",
+  "ruff",
+  "rust_analyzer",
+  "gopls",
+  "ast_grep",
+  "zuban",
+})
 
 vim.lsp.config("*", {
   root_markers = { ".git", ".jj" },
@@ -74,13 +85,22 @@ vim.lsp.config.basedpyright = {
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
-      disableLanguageServices = false,
+      disableLanguageServices = true,
       analysis = {
         autoImportCompletions = false,
         useLibraryCodeForTypes = false,
       },
     },
   },
+}
+
+vim.lsp.config.zuban = {
+  filetypes = { "python" },
+  root_markers = {
+    "pyproject.toml",
+  },
+  cmd = { "uvx", "zuban", "server" },
+  settings = {},
 }
 
 vim.lsp.config.ruff = {
@@ -102,7 +122,7 @@ vim.lsp.config.ty = {
   settings = {
     python = {
       ty = {
-        disableLanguageServices = false,
+        disableLanguageServices = true,
       },
     },
   },
