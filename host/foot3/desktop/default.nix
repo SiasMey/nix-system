@@ -42,8 +42,22 @@
     gparted
   ];
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-
   security.rtkit.enable = true;
+
+  services.dbus.enable = true;
+  services.dbus.packages = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    configPackages = [
+      pkgs.hyprland
+    ];
+    config = {
+      hyprland.default = ["hyprland" "gtk"];
+    };
+  };
 }
