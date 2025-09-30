@@ -108,6 +108,9 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;
+    portalPackage = null;
+
     extraConfig = ''
       monitor=DP-1,2560x1440@144,auto,auto
 
@@ -246,7 +249,7 @@
       bind = $hyper, L, exec, $focus-or-start orca-slicer OrcaSlicer
       bind = $hyper, N, exec, $focus-or-start ghostty com.mitchellh.ghostty
       bind = $hyper, H, exec, $focus-or-start freecad org.freecad.FreeCAD
-      bind = $hyper, E, exec, $focus-or-start "flatpak run app.zen_browser.zen" zen
+      bind = $hyper, E, exec, $focus-or-start "flatpak run app.zen_browser.zen" app.zen_browser.zen
       bind = $hyper, I, exec, $focus-or-start "flatpak run com.discordapp.Discord" discord
       bind = $hyper, M, exec, $focus-or-start steam steam
       bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
@@ -302,6 +305,7 @@
       windowrulev2 = workspace 2,class:^(firefox)$
       windowrulev2 = workspace 2,class:^(zen-beta)$
       windowrulev2 = workspace 2,class:^(zen)$
+      windowrulev2 = workspace 2,class:app.zen_browser.zen
       windowrulev2 = workspace 3,class:^(discord)$
       windowrulev2 = workspace 3,class:^(WebCord)$
       windowrulev2 = workspace 4,class:^(org.freecad.FreeCAD)$
@@ -321,6 +325,7 @@
       exec-once = systemctl --user start hyprpolkitagent
     '';
   };
+  wayland.windowManager.hyprland.systemd.variables = ["--all"];
 
   home.pointerCursor = {
     gtk.enable = true;
