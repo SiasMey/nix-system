@@ -35,7 +35,7 @@
 
     networkmanagerapplet
     libnotify
-    rofi-wayland
+    rofi
     wl-clipboard
     wlogout
 
