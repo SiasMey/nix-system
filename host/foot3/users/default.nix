@@ -11,6 +11,7 @@
     ];
     openssh.authorizedKeys.keys = [
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJf6EqaVpGEIepdFSzJ+eZl/F6zACCJObvI5HsKneMVbAAAACnNzaDpnaXRodWI= siasm"
+      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIASVZBrLYFUq0VNtr8PCYvc5CCg3EZ2xmTHBsYl9ER3/AAAABHNzaDo= siasm+backup"
     ];
     shell = pkgs.zsh;
   };
