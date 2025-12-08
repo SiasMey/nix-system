@@ -18,5 +18,6 @@
     (import ./jws-bs.nix {inherit pkgs;})
     (import ./jws-fetch.nix {inherit pkgs;})
     (import ./jws-pr.nix {inherit pkgs;})
+    (import ./jws-clean.nix {inherit pkgs;})
   ];
 }

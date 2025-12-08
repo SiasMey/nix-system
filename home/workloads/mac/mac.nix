@@ -10,10 +10,11 @@
     pkgs.podman-compose
     pkgs.amazon-ecr-credential-helper
     pkgs.gh
+    pkgs.jira-cli-go
   ];
 
   home.file = {
     ".config/aerospace".source = ../../dotfiles/aerospace;
-    ".config/jj/config.toml".source = ../dotfiles/jj/config-work.toml;
+    ".config/jj/config.toml".source = ../../dotfiles/jj/config-work.toml;
   };
 }

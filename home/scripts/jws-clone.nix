@@ -11,7 +11,7 @@ pkgs.writeShellScriptBin "jws-clone" ''
 
   jj git clone $url .clone
   echo 'export CLONE_DIR="$(pwd)/.clone"' >> ".envrc"
-  echo 'export GIT_DIR="$CLONE_DIR/.jj/repo/store/git"' >> ".envrc"
+  echo 'export GIT_DIR="$CLONE_DIR/.git"' >> ".envrc"
   echo 'export PROJECT_DIR="$(pwd)"' >> ".envrc"
   direnv allow
 ''

@@ -12,6 +12,11 @@ dif-editor = ":builtin"
 [template-aliases]
 'log_pr_summary' = '''" - "++self.description().first_line()++"\n"'''
 
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/id_ed25519.pub"
+
 [aliases]
 pr-summary = [
   "log",

@@ -57,3 +57,5 @@ atuin-setup() {
     bindkey '^R' fzf-atuin-history-widget
 }
 atuin-setup
+
+eval "$(cat ~/.zshoverrides)"

@@ -54,10 +54,10 @@
   };
 
   programs.keychain = {
-    enable = false;
+    enable = true;
     extraFlags = ["--quiet" "--quick"];
     enableZshIntegration = true;
-    keys = ["id_ed25519_sk_hpe"];
+    keys = ["~/.ssh/id_ed25519"];
   };
 
   programs.git = {
