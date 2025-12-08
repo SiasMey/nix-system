@@ -50,6 +50,10 @@ opt.number = true -- Print line number
 opt.relativenumber = false -- Relative line numbers
 opt.cmdheight = 0
 
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
+
 if false then
   opt.foldmethod = "expr"
   opt.foldexpr = "nvim_treesitter#foldexpr()"

@@ -54,6 +54,13 @@
     ];
   };
 
+  programs.keychain = {
+    enable = true;
+    extraFlags = ["--quiet" "--quick"];
+    enableZshIntegration = true;
+    keys = ["id_ed25519_sk_hpe"];
+  };
+
   programs.git = {
     enable = true;
     settings = {

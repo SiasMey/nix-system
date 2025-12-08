@@ -8,7 +8,8 @@ vim.lsp.enable({
   "rust_analyzer",
   "gopls",
   "ast_grep",
-  "zuban",
+  -- "ty",
+  -- "zuban",
 })
 
 vim.lsp.config("*", {
@@ -85,7 +86,7 @@ vim.lsp.config.basedpyright = {
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
-      disableLanguageServices = true,
+      disableLanguageServices = false,
       analysis = {
         autoImportCompletions = false,
         useLibraryCodeForTypes = false,
@@ -118,7 +119,7 @@ vim.lsp.config.ty = {
   root_markers = {
     "pyproject.toml",
   },
-  cmd = { "uv", "run", "ty", "server" },
+  cmd = { "uvx", "ty", "server" },
   settings = {
     python = {
       ty = {

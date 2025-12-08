@@ -1,7 +1,7 @@
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>p", '"+p')
-vim.keymap.set("n", "<leader>s", "<c-^>")
+-- vim.keymap.set("n", "<leader>s", "<c-^>")
 vim.keymap.set("n", "Y", "y$")
 
 vim.keymap.set("n", "l", "<Nop>")
