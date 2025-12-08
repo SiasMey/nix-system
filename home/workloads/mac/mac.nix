@@ -14,5 +14,6 @@
 
   home.file = {
     ".config/aerospace".source = ../../dotfiles/aerospace;
+    ".config/jj/config.toml".source = ../dotfiles/jj/config-work.toml;
   };
 }

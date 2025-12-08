@@ -42,7 +42,6 @@
     ".config/starship.toml".source = ../dotfiles/starship/starship.toml;
     ".config/tmux/theme.conf".source = ../dotfiles/tmux/theme.conf;
     ".config/direnv/direnvrc".source = ../dotfiles/direnv/direnvrc;
-    ".config/jj/config.toml".source = ../dotfiles/jj/config.toml;
   };
 
   programs.home-manager.enable = true;
@@ -55,7 +54,7 @@
   };
 
   programs.keychain = {
-    enable = true;
+    enable = false;
     extraFlags = ["--quiet" "--quick"];
     enableZshIntegration = true;
     keys = ["id_ed25519_sk_hpe"];

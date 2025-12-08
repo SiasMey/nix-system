@@ -17,6 +17,8 @@ alias docker=podman
 # export GOPATH="~/go/bin"
 # path+=~/go/bin
 
+source <(jj util completion zsh)
+
 atuin-setup() {
     if ! which atuin &> /dev/null; then return 1; fi
     # bindkey '^E' _atuin_search_widget
