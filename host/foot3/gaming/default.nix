@@ -6,11 +6,9 @@
   environment.systemPackages = with pkgs; [
     mangohud
     protonup
-    # lutris
-    # webcord
-    # discord
-    # winetricks
-    # wineWowPackages.waylandFull
+    (retroarch.withCores (cores: with cores; [
+      fbneo
+    ]))
   ];
 
   environment.sessionVariables = {
