@@ -8,7 +8,8 @@ vim.lsp.enable({
   "rust_analyzer",
   "gopls",
   "ast_grep",
-  -- "ty",
+  "tombi",
+  "ty",
   -- "zuban",
 })
 
@@ -86,7 +87,7 @@ vim.lsp.config.basedpyright = {
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
-      disableLanguageServices = false,
+      disableLanguageServices = true,
       analysis = {
         autoImportCompletions = false,
         useLibraryCodeForTypes = false,
@@ -123,7 +124,7 @@ vim.lsp.config.ty = {
   settings = {
     python = {
       ty = {
-        disableLanguageServices = true,
+        -- disableLanguageServices = true,
       },
     },
   },
@@ -199,12 +200,18 @@ vim.lsp.config.yamlls = {
   },
 }
 
+vim.lsp.config.tombi = {
+  cmd = { "uvx", "tombi", "lsp" },
+  filetypes = { "toml" },
+  root_markers = { "tombi.toml", "cargo.toml", "pyproject.toml", ".git", ".jj" },
+}
+
 local function toggle_diagnostics()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled(), { bufnr = 0 })
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 end
 
 local function toggle_inlay()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(), { bufnr = 0 })
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
