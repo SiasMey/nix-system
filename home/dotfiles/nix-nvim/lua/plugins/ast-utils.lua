@@ -13,8 +13,115 @@ local function setup_ts_context()
   })
 end
 
+local function setup_text_objects()
+  require("nvim-treesitter-textobjects").setup({
+    select = {
+      lookbehind = true,
+      lookahead = true,
+      include_surrounding_whitespace = false,
+      selection_modes = {
+        ["@function.outer"] = "V",
+        ["@function.inner"] = "V",
+        ["@class.outer"] = "V",
+        ["@class.inner"] = "V",
+        ["@conditional.outer"] = "v",
+        ["@conditional.inner"] = "v",
+        ["@block.outer"] = "V",
+        ["@block.inner"] = "V",
+        ["@parameter.outer"] = "v",
+        ["@parameter.inner"] = "v",
+        ["@statement.outer"] = "v",
+      },
+    },
+    move = {
+      set_jumps = false,
+    },
+  })
+  -- select
+  vim.keymap.set({ "x", "o" }, "af", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "if", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ac", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ic", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ab", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@block.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ib", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@block.inner", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "as", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@statement.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ap", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
+  end)
+  vim.keymap.set({ "x", "o" }, "ip", function()
+    require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
+  end)
+  -- move
+  vim.keymap.set({ "n", "x", "o" }, "<m-f>", function()
+    require("nvim-treesitter-textobjects.move").goto_previous_start("@statement.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "<m-c>", function()
+    require("nvim-treesitter-textobjects.move").goto_next_start("@statement.outer", "textobjects")
+  end)
+
+  vim.keymap.set({ "n", "x", "o" }, "<m-w>", function()
+    require("nvim-treesitter-textobjects.move").goto_previous_start("@parameter.inner", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "<m-x>", function()
+    require("nvim-treesitter-textobjects.move").goto_next_start("@parameter.inner", "textobjects")
+  end)
+
+  vim.keymap.set({ "n", "x", "o" }, "<m-b>", function()
+    require("nvim-treesitter-textobjects.move").goto_previous("@class.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "<m-v>", function()
+    require("nvim-treesitter-textobjects.move").goto_next("@class.outer", "textobjects")
+  end)
+
+  vim.keymap.set({ "n", "x", "o" }, "<m-p>", function()
+    require("nvim-treesitter-textobjects.move").goto_previous("@function.outer", "textobjects")
+  end)
+  vim.keymap.set({ "n", "x", "o" }, "<m-d>", function()
+    require("nvim-treesitter-textobjects.move").goto_next("@function.outer", "textobjects")
+  end)
+  -- swap
+  vim.keymap.set("n", "<m-c-v>", function()
+    require("nvim-treesitter-textobjects.swap").swap_next("@class.outer")
+  end)
+  vim.keymap.set("n", "<m-c-b>", function()
+    require("nvim-treesitter-textobjects.swap").swap_previous("@class.outer")
+  end)
+  vim.keymap.set("n", "<m-c-d>", function()
+    require("nvim-treesitter-textobjects.swap").swap_next("@function.outer")
+  end)
+  vim.keymap.set("n", "<m-c-p>", function()
+    require("nvim-treesitter-textobjects.swap").swap_previous("@function.outer")
+  end)
+  vim.keymap.set("n", "<m-c-c>", function()
+    require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+  end)
+  vim.keymap.set("n", "<m-c-f>", function()
+    require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+  end)
+  vim.keymap.set("n", "<m-c-x>", function()
+    require("nvim-treesitter-textobjects.swap").swap_next("@statement.outer")
+  end)
+  vim.keymap.set("n", "<m-c-w>", function()
+    require("nvim-treesitter-textobjects.swap").swap_previous("@statement.outer")
+  end)
+end
+
 local function setup_treesitter()
-  require("nvim-treesitter.configs").setup({
+  require("nvim-treesitter").setup({
     auto_install = false,
     ensure_installed = {},
     highlight = {
@@ -22,72 +129,6 @@ local function setup_treesitter()
     },
     indent = {
       enable = true,
-    },
-    textobjects = {
-      move = {
-        enable = true,
-        set_jumps = true,
-        goto_previous_start = {
-          ["<m-b>"] = "@class.outer",
-          ["<m-p>"] = "@function.outer",
-          ["<m-f>"] = "@parameter.inner",
-          ["<m-w>"] = "@statement.outer",
-        },
-        goto_next_end = {
-          ["<m-v>"] = "@class.outer",
-          ["<m-d>"] = "@function.outer",
-        },
-        goto_next_start = {
-          ["<m-c>"] = "@parameter.inner",
-          ["<m-x>"] = "@statement.outer",
-        },
-      },
-      swap = {
-        enable = true,
-        lookahead = false,
-        swap_previous = {
-          ["<m-c-b>"] = "@class.outer",
-          ["<m-c-p>"] = "@function.outer",
-          ["<m-c-f>"] = "@parameter.inner",
-          ["<m-c-w>"] = "@statement.outer",
-        },
-        swap_next = {
-          ["<m-c-v>"] = "@class.outer",
-          ["<m-c-d>"] = "@function.outer",
-          ["<m-c-c>"] = "@parameter.inner",
-          ["<m-c-x>"] = "@statement.outer",
-        },
-      },
-      select = {
-        enable = false,
-        lookahead = true,
-        lookbehind = true,
-        include_surrounding_whitespace = false,
-        selection_modes = {
-          ["@function.outer"] = "V",
-          ["@function.inner"] = "V",
-          ["@class.outer"] = "V",
-          ["@class.inner"] = "V",
-          ["@conditional.outer"] = "v",
-          ["@conditional.inner"] = "v",
-          ["@block.outer"] = "V",
-          ["@block.inner"] = "V",
-          ["@parameter.outer"] = "v",
-          ["@parameter.inner"] = "v",
-          ["@statement.outer"] = "v",
-        },
-        keymaps = {
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-          ["ab"] = "@block.outer",
-          ["ib"] = "@block.inner",
-          ["as"] = "@statement.outer",
-          ["ip"] = "@parameter.inner",
-          ["ap"] = "@parameter.outer",
-        },
-      },
     },
   })
 end
@@ -225,9 +266,10 @@ end
 
 local M = {}
 M.setup = function()
+  setup_text_objects()
   setup_ts_context()
   setup_treesitter()
-  setup_mini_ai()
+  -- setup_mini_ai()
   setup_refactoring()
   setup_indent_blankline()
   setup_grug_far()

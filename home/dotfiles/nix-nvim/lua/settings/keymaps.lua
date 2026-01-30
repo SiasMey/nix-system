@@ -6,6 +6,7 @@ vim.keymap.set("n", "Y", "y$")
 
 vim.keymap.set("n", "l", "<Nop>")
 vim.keymap.set("n", "h", "<Nop>")
+vim.keymap.set("n", "<c-c>", "<Nop>")
 vim.keymap.set("n", "<c-l>", "<Nop>")
 vim.keymap.set("n", "<c-h>", "<Nop>")
 vim.keymap.set("i", "<c-l>", "<Nop>")

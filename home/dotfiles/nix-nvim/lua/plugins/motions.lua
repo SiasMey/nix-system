@@ -7,6 +7,7 @@ local function setup_leap()
   end)
 end
 
+
 local function setup_hop()
   local hop = require("hop")
   hop.setup({ keys = "tnseriaogm" })
