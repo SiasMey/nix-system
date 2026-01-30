@@ -308,6 +308,7 @@
       windowrulev2 = workspace 4,class:^(OrcaSlicer)$
       windowrulev2 = workspace 5,class:^(steam)$
       windowrulev2 = workspace 6,class:^(net.lutris.Lutris)$
+      windowrulev2 = workspace 7,class:^(com.libretro.RetroArch)$
 
       # Ignore maximize requests from apps. You'll probably like this.
       windowrulev2 = suppressevent maximize, class:.*
