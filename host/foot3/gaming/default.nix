@@ -5,10 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup
-    (retroarch.withCores (cores: with cores; [
-      fbneo
-    ]))
+    protonup-ng
   ];
 
   environment.sessionVariables = {
