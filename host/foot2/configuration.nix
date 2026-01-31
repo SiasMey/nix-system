@@ -42,9 +42,9 @@
     git
     bws
     nss.tools
-    authelia
     openssl
     pocket-id
+    mailcap
   ];
 
   environment.enableAllTerminfo = true;

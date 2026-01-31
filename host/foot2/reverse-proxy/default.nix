@@ -5,7 +5,7 @@
 
   services.caddy.virtualHosts."photos.dwarf-foot.dev" = {
     extraConfig = ''
-      reverse_proxy  :2283
+      reverse_proxy  127.0.0.1:2283
     '';
   };
 

@@ -14,4 +14,7 @@
       OAUTH_ALLOW_DANGEROUS_EMAIL_ACCOUNT_LINKING = "true";
     };
   };
+  services.meilisearch = {
+    enable =  true;
+  };
 }
