@@ -1,4 +1,3 @@
-M = {}
 M.setup = function()
   local _99 = require("99")
 
@@ -47,6 +46,7 @@ M.setup = function()
     --- /foo/bar/AGENT.md
     --- /foo/AGENT.md
     --- assuming that /foo is project root (based on cwd)
+    model = "opencode/kimi-k2.5-free",
     md_files = {
       "AGENT.md",
     },
