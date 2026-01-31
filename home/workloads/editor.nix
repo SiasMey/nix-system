@@ -8,6 +8,15 @@
       hash = "sha256-lBj4KUPmmhtpffYky/HpaTwY++d/Q9socp/Ys+4VeX0=";
     };
   };
+  primeagen-99 = pkgs.vimUtils.buildVimPlugin {
+    name = "99";
+    src = pkgs.fetchFromGitHub {
+      owner = "ThePrimeagen";
+      repo = "99";
+      rev = "2c771814e1d95280ee99545de61b28dfa773c5fa";
+      hash = "sha256-Gzh7YMWJtBzacy1ivOZhGrTVXhwMI2Yz3SiEWzET+PM=";
+    };
+  };
   neo-solarized-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "neo-solarized-nvim";
     src = pkgs.fetchFromGitHub {
@@ -74,6 +83,7 @@ in {
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
+      primeagen-99
       conform-nvim
       fzf-lua
       grug-far-nvim

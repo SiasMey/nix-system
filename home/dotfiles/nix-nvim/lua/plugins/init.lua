@@ -1,5 +1,6 @@
 require("plugins.lsp").setup()
 require("plugins.animate").setup()
+require("plugins.ai").setup()
 require("plugins.colorscheme").setup()
 require("plugins.file-navigation").setup()
 require("plugins.fuzzyfind").setup()
