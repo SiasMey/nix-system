@@ -3,7 +3,7 @@ window-padding-color=extend
 window-decoration=false
 fullscreen=true
 macos-option-as-alt=true
-theme=Builtin Solarized Light
+theme=iTerm2 Solarized Light
 font-size=16
 term=xterm-ghostty
 

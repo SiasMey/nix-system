@@ -4,9 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +20,6 @@
     self,
     nixpkgs,
     home-manager,
-    ghostty,
     agenix,
     ...
   } @ inputs: let
@@ -65,30 +61,12 @@
         ];
       };
 
-      "meysi@foot1" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./home/users/meysi/foot1.nix
-          {
-            # home.packages = [
-            #   inputs.ghostty.packages.x86_64-linux.default
-            # ];
-            home.username = "meysi";
-            home.homeDirectory = "/home/meysi";
-          }
-        ];
-      };
-
       "siasm@foot3" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home/users/siasm/foot3.nix
           {
-            home.packages = [
-              # inputs.ghostty.packages.x86_64-linux.default
-            ];
             home.username = "siasm";
             home.homeDirectory = "/home/siasm";
           }

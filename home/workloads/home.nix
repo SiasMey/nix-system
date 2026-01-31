@@ -32,6 +32,7 @@
     pkgs.jujutsu
     pkgs.jjui
     pkgs.libation
+    pkgs.opencode
   ];
 
   home.file = {
@@ -131,11 +132,5 @@
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ../dotfiles/tmux/tmux.conf;
-  };
-
-  programs.gitui = {
-    enable = true;
-    keyConfig = ../dotfiles/gitui/key_bindings.ron;
-    theme = ../dotfiles/gitui/theme.ron;
   };
 }
