@@ -28,7 +28,7 @@ local function setup_conform()
       markdown = { "mdformat", "injected" },
       just = { "just" },
       terraform = { "terraform_fmt" },
-      toml = { "taplo" },
+      toml = { "tombi" },
       sh = { "beautysh" },
       json = { "fixjson", "jq" },
       -- yaml = { "yq" },

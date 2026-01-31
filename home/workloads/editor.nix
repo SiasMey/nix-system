@@ -8,15 +8,6 @@
       hash = "sha256-lBj4KUPmmhtpffYky/HpaTwY++d/Q9socp/Ys+4VeX0=";
     };
   };
-  nvim-treehopper = pkgs.vimUtils.buildVimPlugin {
-    name = "nvim-treehopper";
-    src = pkgs.fetchFromGitHub {
-      owner = "mfussenegger";
-      repo = "nvim-treehopper";
-      rev = "e87002968983ed23836dfad53bcf023e609db42d";
-      hash = "sha256-JLL+w66izB89XhbTY8lRTqEhgBmMzPnV013jbhZDnqU=";
-    };
-  };
   neo-solarized-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "neo-solarized-nvim";
     src = pkgs.fetchFromGitHub {
@@ -37,10 +28,8 @@ in {
     pkgs.bash-language-server
     pkgs.beautysh
     pkgs.d2
-    pkgs.earthlyls
     pkgs.efm-langserver
     pkgs.fixjson
-    pkgs.gitui
     pkgs.golangci-lint-langserver
     pkgs.gopls
     pkgs.jq
@@ -48,12 +37,12 @@ in {
     pkgs.marksman
     pkgs.mdformat
     pkgs.mermaid-cli
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
     pkgs.nufmt
     pkgs.openscad-lsp
     pkgs.rust-analyzer
     pkgs.stylua
-    pkgs.taplo
+    pkgs.tombi
     pkgs.terraform-ls
     pkgs.typos-lsp
     pkgs.uv
@@ -89,7 +78,6 @@ in {
       fzf-lua
       grug-far-nvim
       harpoon2
-      hop-nvim
       indent-blankline-nvim
       lazydev-nvim
       leap-nvim
@@ -97,12 +85,10 @@ in {
       lualine-lsp-progress
       lualine-nvim
       luasnip
-      mini-nvim
       neogen
       neo-solarized-nvim
       blink-cmp
       nvim-notify
-      nvim-treehopper
       nvim-treesitter-context
       nvim-treesitter-parsers.just
       nvim-treesitter-textobjects
@@ -113,7 +99,7 @@ in {
       workspace-diagnostics
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       require("settings")
       require("plugins")
     '';

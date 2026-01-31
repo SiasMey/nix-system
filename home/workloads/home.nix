@@ -17,7 +17,6 @@
     pkgs.bottom
     pkgs.cargo
     pkgs.dust
-    pkgs.earthly
     pkgs.fastfetch
     pkgs.just
     pkgs.kubectl
@@ -55,9 +54,11 @@
 
   programs.git = {
     enable = true;
-    userName = "Sias Mey";
-    userEmail = "siasmey@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Sias Mey";
+        email = "siasmey@gmail.com";
+      };
       init.defaultBranch = "trunk";
       push.autoSetupRemote = true;
       pull.rebase = true;

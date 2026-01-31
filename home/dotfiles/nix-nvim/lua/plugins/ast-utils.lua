@@ -148,48 +148,6 @@ local function setup_refactoring()
   })
 end
 
-local function setup_mini_ai()
-  local spec_treesitter = require("mini.ai").gen_spec.treesitter
-  require("mini.ai").setup({
-    -- Table with textobject id as fields, textobject specification as values.
-    -- Also use this to disable builtin textobjects. See |MiniAi.config|.
-    custom_textobjects = {
-      c = spec_treesitter({ a = "@class.outer", i = "@class.inner" }, { vis_mode = "V" }),
-      f = spec_treesitter({ a = "@function.outer", i = "@function.inner" }, { vis_mode = "V" }),
-      b = spec_treesitter({ a = "@block.outer", i = "@block.inner" }, { vis_mode = "v" }),
-      s = spec_treesitter({ a = "@statement.outer", i = "@statement.outer" }, { vis_mode = "v" }),
-      p = spec_treesitter({ a = "@parameter.outer", i = "@parameter.inner" }, { vis_mode = "v" }),
-    },
-
-    -- Module mappings. Use `''` (empty string) to disable one.
-    mappings = {
-      -- Main textobject prefixes
-      around = "a",
-      inside = "i",
-
-      -- Next/last variants
-      around_next = "an",
-      inside_next = "in",
-      around_last = "al",
-      inside_last = "il",
-
-      -- Move cursor to corresponding edge of `a` textobject
-      goto_left = "g[",
-      goto_right = "g]",
-    },
-
-    -- Number of lines within which textobject is searched
-    n_lines = 50,
-
-    -- How to search for object (first inside current line, then inside
-    -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-    -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
-    search_method = "cover_or_next",
-
-    -- Whether to disable showing non-error feedback
-    silent = false,
-  })
-end
 
 local function setup_indent_blankline()
   require("ibl").setup({
@@ -269,7 +227,6 @@ M.setup = function()
   setup_text_objects()
   setup_ts_context()
   setup_treesitter()
-  -- setup_mini_ai()
   setup_refactoring()
   setup_indent_blankline()
   setup_grug_far()

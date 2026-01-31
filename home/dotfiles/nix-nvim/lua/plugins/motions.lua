@@ -7,23 +7,8 @@ local function setup_leap()
   end)
 end
 
-
-local function setup_hop()
-  local hop = require("hop")
-  hop.setup({ keys = "tnseriaogm" })
-end
-
-local function setup_treehopper()
-  local tsht = require("plugins.motions-treehopper")
-  vim.keymap.set("n", "M", function()
-    tsht.move({ side = "start" })
-  end)
-end
-
 local M = {}
 M.setup = function()
   setup_leap()
-  -- setup_hop()
-  -- setup_treehopper()
 end
 return M
