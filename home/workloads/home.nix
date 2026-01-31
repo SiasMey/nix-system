@@ -33,6 +33,7 @@
     pkgs.jjui
     pkgs.libation
     pkgs.opencode
+    pkgs.ragenix
   ];
 
   home.file = {

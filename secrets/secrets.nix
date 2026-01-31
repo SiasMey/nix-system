@@ -6,6 +6,7 @@ let
   foot3 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFD6/BKZ9L3VXWyTCJHHsMmmvVWxD/x7sIuy81/Dl24V";
   systems = [foot2 foot3];
 in {
+  "pocket-id-key.age".publicKeys = users ++ systems;
   "secret.age".publicKeys = users ++ systems;
   "backup-pass-immich.age".publicKeys = users ++ systems;
   "backup-pass-syncthing.age".publicKeys = users ++ systems;

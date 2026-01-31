@@ -53,7 +53,7 @@ clean:
 
 [working-directory('secrets')]
 create-secret secret_name:
-    sudo nix run github:ryantm/agenix -- {{ secret_name }}.age -i /etc/ssh/ssh_host_ed25519_key
+    sudo nix run github:ryantm/agenix -- -e {{ secret_name }}.age -i /etc/ssh/ssh_host_ed25519_key
 
 fix-mac:
     # Nix
