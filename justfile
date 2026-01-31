@@ -23,11 +23,13 @@ switch_os:
 
 # Switch home-manager
 home_switch:
-    nh home switch . -c {{ user }}@{{ host }}
+    home-manager switch --flake ".#{{ user }}@{{ host }}"
+    # nh home switch . -c {{ user }}@{{ host }}
 
 # Build home-manager
 home_build:
-    nh home build . -c {{ user }}@{{ host }}
+    home-manager build --flake ".#{{ user }}@{{ host }}"
+    # nh home build . -c {{ user }}@{{ host }}
 
 # Show flake output
 show:
