@@ -46,7 +46,7 @@ M.setup = function()
     --- /foo/bar/AGENT.md
     --- /foo/AGENT.md
     --- assuming that /foo is project root (based on cwd)
-    model = "opencode/kimi-k2.5-free",
+    model = "github-copilot/grok-code-fast-1",
     md_files = {
       "AGENT.md",
     },
