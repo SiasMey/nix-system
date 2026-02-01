@@ -28,8 +28,8 @@ home_switch:
 
 # Build home-manager
 home_build:
-    # home-manager build --flake ".#{{ user }}@{{ host }}"
-    nh home build . -c {{ user }}@{{ host }}
+    home-manager build --flake ".#{{ user }}@{{ host }}"
+    # nh home build . -c {{ user }}@{{ host }}
 
 # Show flake output
 show:
@@ -54,6 +54,9 @@ check:
 # Clean
 clean:
     nh clean all --keep-since 7d
+
+gc:
+    nix store gc
 
 [working-directory('secrets')]
 create-secret secret_name:
