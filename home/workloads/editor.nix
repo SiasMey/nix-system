@@ -43,7 +43,7 @@ in {
     pkgs.gopls
     pkgs.jq
     pkgs.lua-language-server
-    pkgs.marksman
+    # pkgs.marksman
     pkgs.mdformat
     pkgs.mermaid-cli
     pkgs.nixfmt
