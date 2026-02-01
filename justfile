@@ -28,8 +28,8 @@ home_switch:
 
 # Build home-manager
 home_build:
-    home-manager build --flake ".#{{ user }}@{{ host }}"
-    # nh home build . -c {{ user }}@{{ host }}
+    # home-manager build --flake ".#{{ user }}@{{ host }}"
+    nh home build . -c {{ user }}@{{ host }}
 
 # Show flake output
 show:

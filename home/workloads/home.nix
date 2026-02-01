@@ -31,8 +31,6 @@
     pkgs.ov
     pkgs.jujutsu
     pkgs.jjui
-    pkgs.libation
-    pkgs.opencode
     pkgs.ragenix
   ];
 
