@@ -1,14 +1,7 @@
 {...}: {
-  # users.groups.vikunja = {};
-  # users.users.vikunja = {
-  #   isSystemUser = true;
-  #   group = "vikunja";
-  #   home = "/var/lib/vikunja";
-  # };
-
   virtualisation.oci-containers.containers = {
     vikunja = {
-      image = "vikunja/vikunja:unstable";
+      image = "vikunja/vikunja:1.0.0";
       ports = ["127.0.0.1:9000:3456"];
       volumes = [
         "/var/lib/vikunja/files:/app/vikunja/files"
