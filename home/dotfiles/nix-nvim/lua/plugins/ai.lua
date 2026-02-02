@@ -1,4 +1,4 @@
-M.setup = function()
+local function setup_99()
   local _99 = require("99")
 
   -- For logging that is to a file if you wish to trace through requests
@@ -80,4 +80,12 @@ M.setup = function()
     _99.fill_in_function()
   end)
 end
+
+M.setup = function()
+  local ok, check_mod = pcall(require, "99")
+  if ok then
+    setup_99()
+  end
+end
+
 return M
