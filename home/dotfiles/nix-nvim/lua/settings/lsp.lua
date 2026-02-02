@@ -10,7 +10,6 @@ vim.lsp.enable({
   "ast_grep",
   "tombi",
   "ty",
-  "zuban",
 })
 
 vim.lsp.config("*", {
@@ -87,22 +86,13 @@ vim.lsp.config.basedpyright = {
   settings = {
     basedpyright = {
       disableOrganizeImports = true,
-      disableLanguageServices = false,
+      disableLanguageServices = true,
       analysis = {
         autoImportCompletions = false,
         useLibraryCodeForTypes = false,
       },
     },
   },
-}
-
-vim.lsp.config.zuban = {
-  filetypes = { "python" },
-  root_markers = {
-    "pyproject.toml",
-  },
-  cmd = { "uvx", "zuban", "server" },
-  settings = {},
 }
 
 vim.lsp.config.ruff = {
