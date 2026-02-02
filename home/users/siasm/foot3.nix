@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ../../scripts
+    ../../workloads/linux
     ../../workloads/hyprland
     ../../workloads/home.nix
     ../../workloads/editor.nix
