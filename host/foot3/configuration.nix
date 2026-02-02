@@ -61,11 +61,6 @@
     settings = {
       interactive = true;
       cue = true;
-      # origin = "pam://yubi";
-      # authFile = pkgs.writeText "u2f-mappings" (lib.concatStrings [
-      #   "siasm"
-      #   ":XVxP5mjmm3ez/LRjdvdZzyaVtROQrGQDNRjuD8lcdHO+cjSOSJhuTDZRxvxUAt/4LadBoJPAAIapzD9/lVzsbw==,VPahnBoPo1lGxshvPX3u3zWR0fcRA1Ovh18/IpjNPKd+h/gDS9KrYfOEStO5G5UNPhNQddjUP9a4eyH1TYRyBg==,es256,+presence"
-      # ]);
     };
   };
 
