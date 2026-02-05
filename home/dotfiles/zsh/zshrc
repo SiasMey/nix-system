@@ -3,6 +3,10 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 bindkey "^[[3~" delete-char
 
+# atuin for shared history, window local for everything else
+setopt no_share_history
+unsetopt share_history
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 export FZF_DEFAULT_OPTS="--bind=ctrl-y:accept,ctrl-n:abort,ctrl-l:up,ctrl-h:down"
@@ -58,4 +62,6 @@ atuin-setup() {
 }
 atuin-setup
 
-eval "$(cat ~/.zshoverrides)"
+if [[ -e "~/.zshoverrides" ]]; then
+    eval "$(cat ~/.zshoverrides)"
+fi
