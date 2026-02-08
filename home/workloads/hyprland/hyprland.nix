@@ -248,7 +248,8 @@
       bind = $hyper, E, exec, $focus-or-start "flatpak run app.zen_browser.zen" app.zen_browser.zen
       bind = $hyper, I, exec, $focus-or-start "flatpak run com.discordapp.Discord" discord
       bind = $hyper, M, exec, $focus-or-start steam steam
-      bind = $hyper, J, exec, $focus-or-start lutris net.lutris.Lutris
+      bind = $hyper, J, exec, $focus-or-start "flatpack run net.lutris.Lutris" net.lutris.Lutris
+      bind = $hyper, K, exec, $focus-or-start "flatpack run com.libretro.RetroArch" com.libretro.RetroArch
       bind = $mainMod CTRL, f, fullscreen
       bind = $mainMod CTRL, s, layoutmsg, swapwithmaster auto
 
@@ -294,27 +295,16 @@
       ##############################
 
 
-      # Example windowrule v2
-      windowrulev2 = workspace 1,class:^(kitty)$,title:^(kitty)$
-      windowrulev2 = workspace 1,class:^(Alacritty)$,title:^(Alacritty)$
-      windowrulev2 = workspace 1,class:^(com.mitchellh.ghostty)$
-      windowrulev2 = workspace 2,class:^(firefox)$
-      windowrulev2 = workspace 2,class:^(zen-beta)$
-      windowrulev2 = workspace 2,class:^(zen)$
-      windowrulev2 = workspace 2,class:app.zen_browser.zen
-      windowrulev2 = workspace 3,class:^(discord)$
-      windowrulev2 = workspace 3,class:^(WebCord)$
-      windowrulev2 = workspace 4,class:^(org.freecad.FreeCAD)$
-      windowrulev2 = workspace 4,class:^(OrcaSlicer)$
-      windowrulev2 = workspace 5,class:^(steam)$
-      windowrulev2 = workspace 6,class:^(net.lutris.Lutris)$
-      windowrulev2 = workspace 7,class:^(com.libretro.RetroArch)$
+      windowrule = match:class com.mitchellh.ghostty, workspace 1
+      windowrule = match:class zen, workspace 2
+      windowrule = match:class app.zen_browser.zen, workspace 2
+      windowrule = match:class discord, workspace 3
+      windowrule = match:class org.freecad.FreeCAD, workspace 4
+      windowrule = match:class OrcaSlicer, workspace 4
+      windowrule = match:class steam, workspace 5
+      windowrule = match:class net.lutris.Lutris, workspace 6
+      windowrule = match:class com.libretro.RetroArch, workspace 7
 
-      # Ignore maximize requests from apps. You'll probably like this.
-      windowrulev2 = suppressevent maximize, class:.*
-
-      # Fix some dragging issues with XWayland
-      windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 
       exec-once = dunst
       exec-once = waybar
