@@ -46,7 +46,7 @@ local function setup_99()
     --- /foo/bar/AGENT.md
     --- /foo/AGENT.md
     --- assuming that /foo is project root (based on cwd)
-    model = "github-copilot/grok-code-fast-1",
+    model = "opencode/kimi-k2.5-free",
     md_files = {
       "AGENT.md",
     },
@@ -81,8 +81,10 @@ local function setup_99()
   end)
 end
 
+local M = {}
+
 M.setup = function()
-  local ok, check_mod = pcall(require, "99")
+  local ok, _ = pcall(require, "99")
   if ok then
     setup_99()
   end
