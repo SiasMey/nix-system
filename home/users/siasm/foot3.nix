@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ../../scripts
     ../../workloads/linux
@@ -9,5 +9,9 @@
     ../../workloads/k8s.nix
     ../../workloads/devenv.nix
     ../../workloads/bibliography.nix
+  ];
+
+  home.packages = [
+    pkgs.libation
   ];
 }
