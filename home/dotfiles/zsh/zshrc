@@ -62,6 +62,6 @@ atuin-setup() {
 }
 atuin-setup
 
-if [[ -e "~/.zshoverrides" ]]; then
-    eval "$(cat ~/.zshoverrides)"
+if [[ -e ~/.zshoverrides ]]; then
+    source ~/.zshoverrides
 fi
