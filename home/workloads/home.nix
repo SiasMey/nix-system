@@ -123,7 +123,8 @@
         carapace $spans.0 nushell ...$spans | from json
       }
       $env.config = {
-        show_banner: false,
+        buffer_editor: "nvim"
+        show_banner: false
         completions: {
           case_sensitive: false # case-sensitive completions
           quick: true    # set to false to prevent auto-selecting completions
@@ -138,14 +139,25 @@
             }
         }
       }
-      $env.PATH = ($env.PATH |
-      split row (char esep) |
-      prepend /home/myuser/.apps |
-      append /usr/bin/env
-      )
+      $env.path ++= ["~/bin"]
+      $env.path ++= ["~/.local/bin"]
     '';
+
     shellAliases = {
-      nano = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+      cat = "bat --paging=never";
+      docker = "podman";
+      nu-open = "open";
+      open = "^open";
+    };
+
+    environmentVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      FZF_DEFAULT_OPTS = "--bind=ctrl-y:accept,ctrl-n:abort,ctrl-l:up,ctrl-h:down";
+      MANPAGER = "bat -l man -p";
+      PAGER = "ov";
     };
   };
 
