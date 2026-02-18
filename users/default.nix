@@ -38,5 +38,5 @@
   programs.ssh = {
     startAgent = true;
   };
-  users.defaultUserShell = pkgs.zsh;
+  users.defaultUserShell = pkgs.nushell;
 }
