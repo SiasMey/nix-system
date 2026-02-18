@@ -74,3 +74,6 @@ flatpak-list:
 
 flatpak-update:
     flatpack update
+
+retrieve-yubikey-keys:
+    ssh-keygen -K
