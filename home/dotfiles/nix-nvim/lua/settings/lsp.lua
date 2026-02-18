@@ -10,6 +10,7 @@ vim.lsp.enable({
   "ast_grep",
   "tombi",
   "ty",
+  "nu",
 })
 
 vim.lsp.config("*", {
@@ -165,6 +166,11 @@ vim.lsp.config.rust_analyzer = {
       },
     },
   },
+}
+
+vim.lsp.config.nu = {
+  filetypes = { "nu" },
+  cmd = { "nu", "--lsp" },
 }
 
 vim.lsp.config.gopls = {

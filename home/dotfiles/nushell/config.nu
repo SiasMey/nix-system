@@ -5,50 +5,60 @@ $env.config.history = {
     sync_on_enter: true
 }
 
-$env.config.keybindings = [
-    {
-        name: menu_down
-        modifier: none
-        keycode: down
-        mode: [vi_normal]
-        event: { send: menudown }
-    }
-    {
-        name: menu_down_alt
-        modifier: control
-        keycode: char_h
-        mode: [vi_normal]
-        event: { send: menudown }
-    }
-    # Move up in menu with Ctrl+p or k
-    {
-        name: menu_up
-        modifier: none
-        keycode: up
-        mode: [vi_normal]
-        event: { send: menuup }
-    }
-    {
-        name: menu_up_alt
-        modifier: control
-        keycode: char_l
-        mode: [vi_normal]
-        event: { send: menuup }
-    }
-    # Select item with Enter
-    {
-        name: menu_select
-        modifier: none
-        keycode: enter
-        mode: [vi_normal]
-        event: { send: enter }
-    }
-    {
-        name: menu_select_alt
-        modifier: control
-        keycode: char_y
-        mode: [vi_normal]
-        event: { send: enter }
-    }
+$env.config.keybindings ++= [
+  {
+      modifier: control
+      keycode: char_l
+      mode: [emacs, vi_normal, vi_insert]
+      event: null
+  }
+  {
+      modifier: control
+      keycode: char_h
+      mode: [emacs, vi_normal, vi_insert]
+      event: null
+  }
+  {
+      modifier: control
+      keycode: char_y
+      mode: [emacs, vi_normal, vi_insert]
+      event: null
+  }
+  {
+      modifier: control
+      keycode: char_p
+      mode: [emacs, vi_normal, vi_insert]
+      event: null
+  }
+  {
+      modifier: control
+      keycode: char_n
+      mode: [emacs, vi_normal, vi_insert]
+      event: null
+  }
+  {
+      modifier: control
+      keycode: char_l
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: menuup }
+  }
+  {
+      modifier: control
+      keycode: char_h
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: menudown }
+  }
+  {
+      modifier: control
+      keycode: char_y
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: enter }
+  }
+  {
+      modifier: control
+      keycode: char_n
+      mode: [emacs, vi_normal, vi_insert]
+      event: { send: escape }
+  }
 ]
 
