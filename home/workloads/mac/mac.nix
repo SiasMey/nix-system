@@ -31,10 +31,10 @@
       # jimd = "jira issue move $JIRA_TICKET 'Selected for development'";
     };
     extraConfig = ''
-      $env.path ++= ["/opt/homebrew/bin"]
-      $env.path ++= ["/opt/homebrew/sbin"]
-      $env.path ++= ["~/.nix-profile/bin"]
-      $env.path ++= ["/nix/var/nix/profiles/default/bin"]
+      $env.path = ( $env.path | prepend "/opt/homebrew/bin")
+      $env.path = ( $env.path | prepend "/opt/homebrew/sbin")
+      $env.path = ( $env.path | prepend "~/.nix-profile/bin")
+      $env.path = ( $env.path | prepend "/nix/var/nix/profiles/default/bin")
     '';
   };
 }
