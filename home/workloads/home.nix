@@ -13,7 +13,6 @@
   };
 
   home.packages = [
-    pkgs.atuin
     pkgs.bottom
     pkgs.cargo
     pkgs.dust
@@ -150,6 +149,10 @@
       docker = "podman";
       nu-open = "open";
       open = "^open";
+      lt = "lsd --tree";
+      ll = "ls -l";
+      la = "ls -a";
+      lla = "ls -la";
     };
 
     environmentVariables = {
@@ -187,6 +190,17 @@
 
   programs.go = {
     enable = true;
+  };
+
+  programs.atuin = {
+    enable = false;
+    enableNushellIntegration = true;
+    enableZshIntegration = true;
+    settings = {
+      filter_mode = "global";
+      filter_mode_shell_up_key_binding = "directory";
+    };
+    forceOverwriteSettings = true;
   };
 
   programs.tmux = {

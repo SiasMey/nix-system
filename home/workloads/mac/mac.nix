@@ -17,4 +17,24 @@
     ".config/aerospace".source = ../../dotfiles/aerospace;
     ".config/jj/config.toml".source = ../../dotfiles/jj/config-work.toml;
   };
+
+  programs.nushell = {
+    shellAliases = {
+      ji = "jira issue";
+      jic = "jira issue create -C'Backend' -asias.mey@hpe.com";
+      jil = "jira issue list -asias.mey@hpe.com -s'In Progress' -s'Selected for Development' --order-by=status";
+      jilr = "jira issue list -asias.mey@hpe.com -s'In Review' -s'Blocked'";
+      jilb = "jira issue list -asias.mey@hpe.com -s'Backlog' -s'Selected for Development' --order-by=status";
+      # jiv = "jira issue view $JIRA_TICKET --comments 5";
+      # jimb = "jira issue move $JIRA_TICKET 'Blocked'";
+      # jimp = "jira issue move $JIRA_TICKET 'In progress'";
+      # jimd = "jira issue move $JIRA_TICKET 'Selected for development'";
+    };
+    extraConfig = ''
+      $env.path ++= ["/opt/homebrew/bin"]
+      $env.path ++= ["/opt/homebrew/sbin"]
+      $env.path ++= ["~/.nix-profile/bin"]
+      $env.path ++= ["/nix/var/nix/profiles/default/bin"]
+    '';
+  };
 }
