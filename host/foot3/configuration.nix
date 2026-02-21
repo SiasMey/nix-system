@@ -13,6 +13,7 @@
     ./scripts
     ./sync.nix
     ./secrets.nix
+    ./arm
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/vpn

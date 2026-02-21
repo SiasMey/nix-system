@@ -40,12 +40,26 @@
     wlogout
 
     gparted
+    libbluray
+    libdvdcss
+    # makemkv
+    # handbrake
+    vlc
   ];
 
   security.rtkit.enable = true;
 
   services.dbus.enable = true;
   services.dbus.packages = [pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
+
+  nixpkgs.overlays = [
+    (self: super: {
+      libbluray-full = super.libbluray.override {
+        withAACS = true;
+        withBDplus = true;
+      };
+    })
+  ];
 
   xdg.portal = {
     enable = true;

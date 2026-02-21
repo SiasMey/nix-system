@@ -2,6 +2,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "sg" ];
 
   hardware.graphics = {
     enable = true;
