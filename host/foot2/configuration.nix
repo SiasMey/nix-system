@@ -14,6 +14,7 @@
     ./authn
     ./projects
     ./homebox
+    ./videos
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/file-sync
