@@ -13,6 +13,7 @@
     ./reverse-proxy
     ./authn
     ./projects
+    ./homebox
     ../workloads/virtualization
     ../workloads/remote-access
     ../workloads/file-sync
