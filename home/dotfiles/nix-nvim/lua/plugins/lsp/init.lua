@@ -10,6 +10,17 @@ end
 
 local function setup_conform()
   require("conform").setup({
+    formatters = {
+      ruff_fix = {
+        command = "uv_ruff",
+      },
+      ruff_format = {
+        command = "uv_ruff",
+      },
+      ruff_organize_imports = {
+        command = "uv_ruff",
+      },
+    },
     formatters_by_ft = {
       lua = {
         "stylua",

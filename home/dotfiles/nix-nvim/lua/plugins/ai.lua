@@ -7,9 +7,22 @@ local function setup_99()
   local cwd = vim.uv.cwd()
   local basename = vim.fs.basename(cwd)
   _99.setup({
-    --- A new feature that is centered around tags
+    provider = _99.Providers.OpenCodeProvider, -- default: OpenCodeProvider
+    model = "github-copilot/grok-code-fast-1",
+    logger = {
+      level = _99.DEBUG,
+      path = "/.tmp/" .. basename .. ".99.debug",
+      print_on_error = true,
+    },
+    -- When setting this to something that is not inside the CWD tools
+    -- such as claude code or opencode will have permission issues
+    -- and generation will fail refer to tool documentation to resolve
+    -- https://opencode.ai/docs/permissions/#external-directories
+    -- https://code.claude.com/docs/en/permissions#read-and-edit
+    tmp_dir = "./tmp",
+
+    --- Completions: #rules and @files in the prompt buffer
     completion = {
-      --- Defaults to .cursor/rules
       -- I am going to disable these until i understand the
       -- problem better.  Inside of cursor rules there is also
       -- application rules, which means i need to apply these
@@ -32,9 +45,16 @@ local function setup_99()
         "scratch/custom_rules/",
       },
 
-      --- What autocomplete do you use.  We currently only
-      --- support cmp right now
-      -- source = "cmp",
+      --- Configure @file completion (all fields optional, sensible defaults)
+      files = {
+        -- enabled = true,
+        -- max_file_size = 102400,     -- bytes, skip files larger than this
+        -- max_files = 5000,            -- cap on total discovered files
+        -- exclude = { ".env", ".env.*", "node_modules", ".git", ... },
+      },
+
+      --- What autocomplete you use.
+      source = "blink",
     },
 
     --- WARNING: if you change cwd then this is likely broken
@@ -46,16 +66,11 @@ local function setup_99()
     --- /foo/bar/AGENT.md
     --- /foo/AGENT.md
     --- assuming that /foo is project root (based on cwd)
-    model = "opencode/kimi-k2.5-free",
     md_files = {
       "AGENT.md",
     },
   })
 
-  -- Create your own short cuts for the different types of actions
-  vim.keymap.set("n", "<space>ap", function()
-    _99.fill_in_function_prompt()
-  end)
   -- take extra note that i have visual selection only in v mode
   -- technically whatever your last visual selection is, will be used
   -- so i have this set to visual mode so i dont screw up and use an
@@ -63,21 +78,17 @@ local function setup_99()
   --
   -- likely ill add a mode check and assert on required visual mode
   -- so just prepare for it now
-  vim.keymap.set("v", "<space>ap", function()
-    _99.visual()
+  vim.keymap.set("v", "<space>av", function()
+    _99.visual({})
   end)
 
   --- if you have a request you dont want to make any changes, just cancel it
-  vim.keymap.set("v", "<space>as", function()
+  vim.keymap.set("n", "<space>as", function()
     _99.stop_all_requests()
   end)
 
-  --- Example: Using rules + actions for custom behaviors
-  --- Create a rule file like ~/.rules/debug.md that defines custom behavior.
-  --- For instance, a "debug" rule could automatically add printf statements
-  --- throughout a function to help debug its execution flow.
   vim.keymap.set("n", "<space>af", function()
-    _99.fill_in_function()
+    _99.search({})
   end)
 end
 

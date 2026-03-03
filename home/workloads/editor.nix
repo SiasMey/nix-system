@@ -83,12 +83,11 @@ in {
       lazydev-nvim
       leap-nvim
       lspkind-nvim
-      # lualine-lsp-progress
-      # lualine-nvim
       luasnip
       neogen
       neo-solarized-nvim
       blink-cmp
+      blink-compat
       nvim-notify
       nvim-treesitter-context
       nvim-treesitter-parsers.just

@@ -77,20 +77,12 @@ vim.keymap.set("v", "<C-M-x>", ":move'>+1<CR>==gv", { desc = "move selection dow
 
 vim.keymap.set("n", "<M-l>", function()
   print("goto prev diagnostic")
-  vim.diagnostic.goto_prev()
+  vim.diagnostic.jump({ count = -1, float = true })
 end, { desc = "goto previous diagnostic in buffer" })
 vim.keymap.set("n", "<M-h>", function()
   print("goto next diagnostic")
-  vim.diagnostic.goto_next()
+  vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "goto next diagnostic in buffer" })
-
-vim.keymap.set("n", "<leader>gs", ":silent !tmux neww -n gitui -c $(pwd) gitui<Enter>", { desc = "Git: Show gitui" })
-vim.keymap.set(
-  "n",
-  "<leader>gc",
-  ":silent !tmux neww -n commit -c $(pwd) git commit<Enter>",
-  { desc = "Git: Create git commit" }
-)
 
 vim.keymap.set("n", "<space>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
@@ -105,3 +97,22 @@ vim.keymap.set({ "n", "v" }, "<space>f", function()
   require("conform").format({})
 end)
 vim.keymap.set("n", "<space>n", vim.lsp.buf.rename)
+
+local function jj_commit_desc()
+  vim.ui.input({ prompt = "Update commit desc> " }, function(input)
+    if input then
+      vim.cmd("!jj desc -m '" .. input .. "'")
+    end
+  end)
+end
+
+local function jj_commit_new()
+  vim.ui.input({ prompt = "New commit> " }, function(input)
+    if input then
+      vim.cmd("!jj new -m '" .. input .. "'")
+    end
+  end)
+end
+
+vim.keymap.set("n", "<space>cd", jj_commit_desc)
+vim.keymap.set("n", "<space>cn", jj_commit_new)
