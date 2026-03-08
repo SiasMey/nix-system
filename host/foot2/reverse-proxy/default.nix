@@ -5,7 +5,7 @@
 
   services.caddy.virtualHosts."photos.dwarf-foot.dev" = {
     extraConfig = ''
-      reverse_proxy  127.0.0.1:2283
+      reverse_proxy  :2283
     '';
   };
 
@@ -23,7 +23,7 @@
 
   services.caddy.virtualHosts."bookmarks.dwarf-foot.dev" = {
     extraConfig = ''
-      reverse_proxy  127.0.0.1:3000
+      reverse_proxy  :3000
     '';
   };
 
@@ -35,9 +35,7 @@
 
   services.caddy.virtualHosts."projects.dwarf-foot.dev" = {
     extraConfig = ''
-      handle /* {
-        reverse_proxy  127.0.0.1:9000
-      }
+      reverse_proxy  :9000
     '';
   };
 

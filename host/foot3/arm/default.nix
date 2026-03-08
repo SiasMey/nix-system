@@ -60,6 +60,7 @@
           "--privileged"
           "--device=/dev/sr0:/dev/sr0"
           "--device=/dev/sg0:/dev/sg0"
+          "--device=/dev/sr1:/dev/sr1"
           "--device=/dev/dri/renderD128:/dev/dri/renderD128"
           "--device=/dev/dri/card1:/dev/dri/card1"
         ];
