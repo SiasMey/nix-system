@@ -8,7 +8,7 @@ local function setup_99()
   local basename = vim.fs.basename(cwd)
   _99.setup({
     provider = _99.Providers.OpenCodeProvider, -- default: OpenCodeProvider
-    model = "github-copilot/grok-code-fast-1",
+    model = "github-copilot/claude-haiku-4.5",
     logger = {
       level = _99.DEBUG,
       path = "/.tmp/" .. basename .. ".99.debug",

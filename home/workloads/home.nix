@@ -30,6 +30,8 @@
     pkgs.ov
     pkgs.jujutsu
     pkgs.jjui
+    pkgs.difftastic
+    pkgs.mergiraf
     pkgs.opencode
     pkgs.ragenix
   ];

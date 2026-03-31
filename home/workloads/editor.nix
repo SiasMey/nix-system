@@ -17,6 +17,15 @@
       hash = "sha256-mZll6RsA11oJYKnbV6K/oAWr+l+8vNXc+X44zplWq8s=";
     };
   };
+  pytest-approve-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "approval";
+    src = pkgs.fetchFromGitHub {
+      owner = "alimasry";
+      repo = "pytest-approve.nvim";
+      rev = "537d2d79bc24ddaba88a95242d1e6259702bb7c8";
+      hash = "sha256-mZll6RsA11oJYKnbV6K/oAWr+l+8vNXc+X44zplWq8s=";
+    };
+  };
 in {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -93,10 +102,16 @@ in {
       nvim-treesitter-parsers.just
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
+      treewalker-nvim
       oil-nvim
+      neotest
+      neotest-python
+      neotest-rust
+      neotest-golang
       refactoring-nvim
       solarized-nvim
       workspace-diagnostics
+      pytest-approve-nvim
     ];
 
     initLua = ''

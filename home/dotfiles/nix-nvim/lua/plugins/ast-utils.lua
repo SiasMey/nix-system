@@ -148,7 +148,6 @@ local function setup_refactoring()
   })
 end
 
-
 local function setup_indent_blankline()
   require("ibl").setup({
     exclude = {
@@ -217,9 +216,13 @@ local function setup_grug_far()
   local function grug_file_rule()
     require("grug-far").open({ prefills = { paths = vim.fn.expand("%") }, engine = "astgrep-rules" })
   end
+  local function grug_rip_grep()
+    require("grug-far").open({ engine = "ripgrep", transient = true })
+  end
 
   vim.keymap.set({ "n" }, "<leader>srr", grug_file_rule, { desc = "Structural find and replace" })
   vim.keymap.set({ "n" }, "<leader>srp", grug_file_pattern, { desc = "Structural find and replace" })
+  vim.keymap.set({ "n" }, "<leader>fg", grug_rip_grep, { desc = "Find and Replace" })
 end
 
 local M = {}

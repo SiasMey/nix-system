@@ -11,6 +11,7 @@ vim.lsp.enable({
   "tombi",
   "ty",
   "nu",
+  "pytest_lsp",
 })
 
 vim.lsp.config("*", {
@@ -43,6 +44,12 @@ vim.lsp.config.luals = {
     },
   },
 }
+
+vim.lsp.config("pytest_lsp", {
+  cmd = { "pytest-language-server" },
+  filetypes = { "python" },
+  root_markers = { "pyproject.toml" },
+})
 
 vim.lsp.config.nix = {
   filetypes = { "nix" },

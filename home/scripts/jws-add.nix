@@ -13,7 +13,6 @@ pkgs.writeShellScriptBin "jws-add" ''
   echo "export WS_BOOKMARK=sm/$TYPE/$NAME" >> .envrc
   echo 'export TEST_CMD="just test"' >> .envrc
   echo "export JIRA_TICKET=$TICKET" >> .envrc
-  echo "layout uv" >> .envrc
   echo "source_up" >> .envrc
   direnv allow
 ''

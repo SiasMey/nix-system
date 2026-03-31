@@ -54,7 +54,7 @@ vim.keymap.set("n", "<leader>xt", ":!chmod +x %<Enter>")
 
 vim.keymap.set("n", "<space>b", ":silent make %<Enter>")
 vim.keymap.set("n", "<space>p", ":silent make .<Enter>")
-vim.keymap.set("n", "<space>tt", ":silent TmuxTest<Enter>")
+-- vim.keymap.set("n", "<space>tt", ":silent TmuxTest<Enter>")
 
 vim.keymap.set("n", "<M-j>", ":silent cprev<Enter>")
 vim.keymap.set("n", "<M-k>", ":silent cnext<Enter>")
@@ -99,7 +99,7 @@ end)
 vim.keymap.set("n", "<space>n", vim.lsp.buf.rename)
 
 local function jj_commit_desc()
-  vim.ui.input({ prompt = "Update commit desc> " }, function(input)
+  vim.ui.input({ prompt = "Update commit desc > " }, function(input)
     if input then
       vim.cmd("!jj desc -m '" .. input .. "'")
     end
@@ -107,12 +107,30 @@ local function jj_commit_desc()
 end
 
 local function jj_commit_new()
-  vim.ui.input({ prompt = "New commit> " }, function(input)
+  vim.ui.input({ prompt = "New commit > " }, function(input)
     if input then
       vim.cmd("!jj new -m '" .. input .. "'")
     end
   end)
 end
 
+local function jj_status()
+  vim.cmd('silent !tmux display-popup -d "\\#{pane_current_path}" jj')
+end
+
 vim.keymap.set("n", "<space>cd", jj_commit_desc)
 vim.keymap.set("n", "<space>cn", jj_commit_new)
+vim.keymap.set("n", "<space>cs", jj_status)
+
+vim.keymap.set("n", "<space>tm", function()
+  require("neotest").summary.run_marked()
+end)
+vim.keymap.set("n", "<space>tt", function()
+  require("neotest").run.run(vim.fn.expand("%"))
+end)
+vim.keymap.set("n", "<space>ts", function()
+  require("neotest").summary.toggle()
+end)
+vim.keymap.set("n", "<space>to", function()
+  require("neotest").output_panel.toggle()
+end)
