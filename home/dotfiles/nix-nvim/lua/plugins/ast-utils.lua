@@ -66,57 +66,11 @@ local function setup_text_objects()
     require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
   end)
   -- move
-  vim.keymap.set({ "n", "x", "o" }, "<m-f>", function()
-    require("nvim-treesitter-textobjects.move").goto_previous_start("@statement.outer", "textobjects")
-  end)
-  vim.keymap.set({ "n", "x", "o" }, "<m-c>", function()
-    require("nvim-treesitter-textobjects.move").goto_next_start("@statement.outer", "textobjects")
-  end)
-
-  vim.keymap.set({ "n", "x", "o" }, "<m-w>", function()
+  vim.keymap.set({ "n", "x", "o" }, "<m-b>", function()
     require("nvim-treesitter-textobjects.move").goto_previous_start("@parameter.inner", "textobjects")
   end)
-  vim.keymap.set({ "n", "x", "o" }, "<m-x>", function()
-    require("nvim-treesitter-textobjects.move").goto_next_start("@parameter.inner", "textobjects")
-  end)
-
-  vim.keymap.set({ "n", "x", "o" }, "<m-b>", function()
-    require("nvim-treesitter-textobjects.move").goto_previous("@class.outer", "textobjects")
-  end)
   vim.keymap.set({ "n", "x", "o" }, "<m-v>", function()
-    require("nvim-treesitter-textobjects.move").goto_next("@class.outer", "textobjects")
-  end)
-
-  vim.keymap.set({ "n", "x", "o" }, "<m-p>", function()
-    require("nvim-treesitter-textobjects.move").goto_previous("@function.outer", "textobjects")
-  end)
-  vim.keymap.set({ "n", "x", "o" }, "<m-d>", function()
-    require("nvim-treesitter-textobjects.move").goto_next("@function.outer", "textobjects")
-  end)
-  -- swap
-  vim.keymap.set("n", "<m-c-v>", function()
-    require("nvim-treesitter-textobjects.swap").swap_next("@class.outer")
-  end)
-  vim.keymap.set("n", "<m-c-b>", function()
-    require("nvim-treesitter-textobjects.swap").swap_previous("@class.outer")
-  end)
-  vim.keymap.set("n", "<m-c-d>", function()
-    require("nvim-treesitter-textobjects.swap").swap_next("@function.outer")
-  end)
-  vim.keymap.set("n", "<m-c-p>", function()
-    require("nvim-treesitter-textobjects.swap").swap_previous("@function.outer")
-  end)
-  vim.keymap.set("n", "<m-c-x>", function()
-    require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
-  end)
-  vim.keymap.set("n", "<m-c-w>", function()
-    require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
-  end)
-  vim.keymap.set("n", "<m-c-c>", function()
-    require("nvim-treesitter-textobjects.swap").swap_next("@statement.outer")
-  end)
-  vim.keymap.set("n", "<m-c-f>", function()
-    require("nvim-treesitter-textobjects.swap").swap_previous("@statement.outer")
+    require("nvim-treesitter-textobjects.move").goto_next_start("@parameter.inner", "textobjects")
   end)
 end
 
@@ -225,6 +179,49 @@ local function setup_grug_far()
   vim.keymap.set({ "n" }, "<leader>fg", grug_rip_grep, { desc = "Find and Replace" })
 end
 
+local function setup_treewalker()
+  local treewalker = require("treewalker")
+  treewalker.setup({
+    -- The defaults:
+    {
+      -- Whether to briefly highlight the node after jumping to it
+      highlight = true,
+
+      -- How long should above highlight last (in ms)
+      highlight_duration = 250,
+
+      -- The color of the above highlight. Must be a valid vim highlight group.
+      -- (see :h highlight-group for options)
+      highlight_group = "CursorLine",
+
+      -- Whether to create a visual selection after a movement to a node.
+      -- If true, highlight is disabled and a visual selection is made in
+      -- its place.
+      select = false,
+
+      -- Whether to use vim.notify to warn when there are missing parsers or incorrect options
+      notifications = true,
+
+      -- Whether the plugin adds movements to the jumplist -- true | false | 'left'
+      --  true: All movements more than 1 line are added to the jumplist. This is the default,
+      --        and is meant to cover most use cases. It's modeled on how { and } natively add
+      --        to the jumplist.
+      --  false: Treewalker does not add to the jumplist at all
+      --  "left": Treewalker only adds :Treewalker Left to the jumplist. This seems the most
+      --          likely jump to cause location confusion, so use this to minimize writes
+      --          to the jumplist, while maintaining some ability to go back.
+      jumplist = true,
+
+      -- Whether movement, when inside the scope of some node, should be confined to that scope.
+      -- When true, when moving through neighboring nodes inside some node, you won't be able to
+      -- move outside of that scope via :Treewalker Up/Down. When false, if on a node at the end
+      -- of a scope, movement will bring you to the next node of similar indentation/number of
+      -- ancestor nodes, even when it is outside of the scope you're currently in.
+      scope_confined = false,
+    },
+  })
+end
+
 local M = {}
 M.setup = function()
   setup_text_objects()
@@ -233,5 +230,6 @@ M.setup = function()
   setup_refactoring()
   setup_indent_blankline()
   setup_grug_far()
+  setup_treewalker()
 end
 return M

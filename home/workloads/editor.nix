@@ -23,7 +23,7 @@
       owner = "alimasry";
       repo = "pytest-approve.nvim";
       rev = "537d2d79bc24ddaba88a95242d1e6259702bb7c8";
-      hash = "sha256-mZll6RsA11oJYKnbV6K/oAWr+l+8vNXc+X44zplWq8s=";
+      hash = "sha256-s9Yf3Ik3MmiPO7o6FCLShKnwv/E+43F55FWnlzDtydE=";
     };
   };
 in {
