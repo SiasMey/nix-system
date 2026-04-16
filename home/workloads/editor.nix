@@ -26,6 +26,15 @@
       hash = "sha256-s9Yf3Ik3MmiPO7o6FCLShKnwv/E+43F55FWnlzDtydE=";
     };
   };
+  fluoride-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "fluoride";
+    src = pkgs.fetchFromGitHub {
+      owner = "Sang-it";
+      repo = "fluoride";
+      rev = "8e7ae26bb2012de7581275e0ae65c7506a89c699";
+      hash = "sha256-ZelQtw9H6WCuKfbmsUwrCWTrpN+JYzo9CNfBxRPUf+4=";
+    };
+  };
 in {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -112,6 +121,7 @@ in {
       solarized-nvim
       workspace-diagnostics
       pytest-approve-nvim
+      fluoride-nvim
     ];
 
     initLua = ''

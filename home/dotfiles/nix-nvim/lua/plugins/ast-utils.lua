@@ -181,7 +181,7 @@ end
 
 local function setup_treewalker()
   local treewalker = require("treewalker")
-  treewalker.setup({
+  treewalker.setup(
     -- The defaults:
     {
       -- Whether to briefly highlight the node after jumping to it
@@ -218,8 +218,14 @@ local function setup_treewalker()
       -- of a scope, movement will bring you to the next node of similar indentation/number of
       -- ancestor nodes, even when it is outside of the scope you're currently in.
       scope_confined = false,
-    },
-  })
+    }
+  )
+end
+
+local function setup_fluoride()
+  local fluoride = require("fluoride")
+  fluoride.setup({})
+  vim.keymap.set("n", "<leader>S", "<cmd>Fluoride<cr>", { desc = "Fluoride" })
 end
 
 local M = {}
@@ -231,5 +237,6 @@ M.setup = function()
   setup_indent_blankline()
   setup_grug_far()
   setup_treewalker()
+  setup_fluoride()
 end
 return M

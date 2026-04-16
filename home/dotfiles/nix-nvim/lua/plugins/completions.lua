@@ -3,7 +3,7 @@ local setup_blink = function()
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
-  opts = {
+  local opts = {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       preset = "none",
