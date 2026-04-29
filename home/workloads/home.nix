@@ -32,7 +32,7 @@
     pkgs.jjui
     pkgs.difftastic
     pkgs.mergiraf
-    pkgs.opencode
+    # pkgs.opencode
     pkgs.ragenix
   ];
 
@@ -62,6 +62,7 @@
 
   programs.git = {
     enable = true;
+    signing.format = null;
     settings = {
       user = {
         name = "Sias Mey";

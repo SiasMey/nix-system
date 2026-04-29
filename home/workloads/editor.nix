@@ -35,6 +35,31 @@
       hash = "sha256-ZelQtw9H6WCuKfbmsUwrCWTrpN+JYzo9CNfBxRPUf+4=";
     };
   };
+  local-async-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "async.nvim";
+    version = "2026-04-30";
+    src = pkgs.fetchFromGitHub {
+      owner = "lewis6991";
+      repo = "async.nvim";
+      rev = "7a1d7d49933fbe902b84b55f352a3b10fd587331";
+      sha256 = "sha256-uyUvZVN7L7SqPAE1woc1T8dlhpH24FBj3/WD4VMwWF8=";
+    };
+    meta.homepage = "https://github.com/lewis6991/async.nvim";
+    nvimRequireCheck = "async";
+  };
+  local-refactoring-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "refactoring.nvim";
+    version = "2026-04-30";
+    src = pkgs.fetchFromGitHub {
+      owner = "theprimeagen";
+      repo = "refactoring.nvim";
+      rev = "7bcbbda68c4043d1224f0bb49cfaf0b1628bc07e";
+      sha256 = "sha256-RKQlDZ+RhI4mJdrYv5Pt25ziTF/jSllvVFmUId0RHoo=";
+    };
+    meta.homepage = "https://github.com/theprimeagen/refactoring.nvim/";
+    nvimRequireCheck = "refactoring";
+    dependencies = [local-async-nvim];
+  };
 in {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -46,13 +71,11 @@ in {
     pkgs.bash-language-server
     pkgs.beautysh
     pkgs.d2
-    pkgs.efm-langserver
     pkgs.fixjson
     pkgs.golangci-lint-langserver
     pkgs.gopls
     pkgs.jq
     pkgs.lua-language-server
-    # pkgs.marksman
     pkgs.mdformat
     pkgs.mermaid-cli
     pkgs.nixfmt
@@ -91,8 +114,10 @@ in {
 
   programs.neovim = {
     enable = true;
+    withPython3 = false;
+    withRuby = false;
+
     plugins = with pkgs.vimPlugins; [
-      # primeagen-99
       conform-nvim
       fzf-lua
       grug-far-nvim
@@ -117,7 +142,8 @@ in {
       neotest-python
       neotest-rust
       neotest-golang
-      refactoring-nvim
+      local-async-nvim
+      local-refactoring-nvim
       solarized-nvim
       workspace-diagnostics
       pytest-approve-nvim
