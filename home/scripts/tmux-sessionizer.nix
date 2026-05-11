@@ -1,6 +1,6 @@
 {pkgs}:
 pkgs.writeShellScriptBin "tmux-sessionizer" ''
-    if [[ $# -eq 1 ]]; then
+  if [[ $# -eq 1 ]]; then
       selected=$1
   else
       items="$(echo $HOME/nix-system)\n"
