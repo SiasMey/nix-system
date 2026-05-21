@@ -12,4 +12,6 @@ key = "~/.ssh/id_ed25519.pub"
 [ui]
 default-command = ["log", "--revisions", "ancestors(@) & mutable()"]
 paginate = "never"
-dif-editor = ":builtin"
+diff-editor = ":builtin"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+merge-editor = "mergiraf"
