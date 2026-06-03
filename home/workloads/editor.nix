@@ -35,6 +35,15 @@
       hash = "sha256-ZelQtw9H6WCuKfbmsUwrCWTrpN+JYzo9CNfBxRPUf+4=";
     };
   };
+  pounce-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "pounce";
+    src = pkgs.fetchFromGitHub {
+      owner = "rlane";
+      repo = "pounce.nvim";
+      rev = "master";
+      hash = "sha256-PTL0wwUE1sO6YlJNPnlNilKyR5kQDBYXiDM5gh6pkuM=";
+    };
+  };
   local-async-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "async.nvim";
     version = "2026-04-30";
@@ -69,6 +78,7 @@ in {
     pkgs.alejandra
     pkgs.ast-grep
     pkgs.bash-language-server
+    pkgs.copilot-language-server
     pkgs.beautysh
     pkgs.d2
     pkgs.fixjson
@@ -125,6 +135,7 @@ in {
       indent-blankline-nvim
       lazydev-nvim
       leap-nvim
+      pounce-nvim
       lspkind-nvim
       luasnip
       neogen
@@ -143,7 +154,7 @@ in {
       neotest-rust
       neotest-golang
       local-async-nvim
-      local-refactoring-nvim
+      # local-refactoring-nvim
       solarized-nvim
       workspace-diagnostics
       pytest-approve-nvim

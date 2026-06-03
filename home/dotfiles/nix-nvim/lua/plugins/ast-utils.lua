@@ -24,7 +24,7 @@ local function setup_text_objects()
         ["@function.inner"] = "V",
         ["@class.outer"] = "V",
         ["@class.inner"] = "V",
-        ["@conditional.outer"] = "v",
+        ["@conditional.outer"] = "V",
         ["@conditional.inner"] = "v",
         ["@block.outer"] = "V",
         ["@block.inner"] = "V",
@@ -176,7 +176,7 @@ local function setup_grug_far()
 
   vim.keymap.set({ "n" }, "<leader>srr", grug_file_rule, { desc = "Structural find and replace" })
   vim.keymap.set({ "n" }, "<leader>srp", grug_file_pattern, { desc = "Structural find and replace" })
-  vim.keymap.set({ "n" }, "<leader>fg", grug_rip_grep, { desc = "Find and Replace" })
+  vim.keymap.set({ "n" }, "<leader>srg", grug_rip_grep, { desc = "Find and Replace" })
 end
 
 local function setup_treewalker()
@@ -228,6 +228,11 @@ local function setup_fluoride()
   vim.keymap.set("n", "<leader>S", "<cmd>Fluoride<cr>", { desc = "Fluoride" })
 end
 
+local function setup_ts_utils()
+  -- these are mine
+  require("ts-utils")
+end
+
 local M = {}
 M.setup = function()
   setup_text_objects()
@@ -238,5 +243,6 @@ M.setup = function()
   setup_grug_far()
   setup_treewalker()
   setup_fluoride()
+  setup_ts_utils()
 end
 return M

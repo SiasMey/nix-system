@@ -152,6 +152,8 @@
       docker = "podman";
       nu-open = "open";
       open = "^open";
+      nu-tee = "tee";
+      tee = "^tee";
       lt = "lsd --tree";
       ll = "ls -l";
       la = "ls -a";

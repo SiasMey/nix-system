@@ -78,17 +78,21 @@ local function setup_99()
   --
   -- likely ill add a mode check and assert on required visual mode
   -- so just prepare for it now
-  vim.keymap.set("v", "<space>av", function()
+  vim.keymap.set("v", "<leader>pv", function()
     _99.visual({})
   end)
 
   --- if you have a request you dont want to make any changes, just cancel it
-  vim.keymap.set("n", "<space>as", function()
+  vim.keymap.set("n", "<leader>ps", function()
     _99.stop_all_requests()
   end)
 
-  vim.keymap.set("n", "<space>af", function()
+  vim.keymap.set("n", "<leader>pf", function()
     _99.search({})
+  end)
+
+  vim.keymap.set("n", "<leader>pd", function()
+    _99.vibe({})
   end)
 end
 

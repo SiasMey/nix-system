@@ -21,9 +21,9 @@ local setup_blink = function()
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { "lsp", "path", "buffer" },
+      default = { "lsp", "path", "buffer", "snippets" },
     },
-
+    snippets = { preset = "luasnip" },
     cmdline = {
       keymap = { preset = "inherit" },
       completion = { menu = { auto_show = true } },

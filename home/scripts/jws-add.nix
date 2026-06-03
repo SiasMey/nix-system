@@ -14,5 +14,6 @@ pkgs.writeShellScriptBin "jws-add" ''
   echo 'export TEST_CMD="just test"' >> .envrc
   echo "export JIRA_TICKET=$TICKET" >> .envrc
   echo "source_up" >> .envrc
+  echo "layout uv" >> .envrc
   direnv allow
 ''

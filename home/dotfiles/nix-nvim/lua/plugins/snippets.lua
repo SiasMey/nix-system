@@ -14,7 +14,7 @@ local setup_luasnip = function()
   end, { silent = true })
   vim.keymap.set({ "i", "s" }, "<c-s>", function()
     if luasnip.choice_active() then
-      luasnip.change_choice(1)
+      require("luasnip.extras.select_choice")()
     end
   end, { silent = true })
 end
