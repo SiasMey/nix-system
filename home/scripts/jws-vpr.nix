@@ -1,5 +1,5 @@
 {pkgs}:
-pkgs.writeShellScript "jws-prv" ''
+pkgs.writeShellScriptBin "jws-vpr" ''
   set -e
   gh pr view $WS_BOOKMARK $0
 ''
