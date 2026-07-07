@@ -9,5 +9,5 @@ pkgs.writeShellScriptBin "jws-bs" ''
   else
     jj bookmark set $WS_BOOKMARK -r@ --allow-backwards
   fi
-  jj git push --allow-new
+  jj git push -b $WS_BOOKMARK
 ''
