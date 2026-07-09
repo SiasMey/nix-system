@@ -78,7 +78,7 @@ in {
     pkgs.alejandra
     pkgs.ast-grep
     pkgs.bash-language-server
-    pkgs.copilot-language-server
+    # pkgs.copilot-language-server
     pkgs.beautysh
     pkgs.d2
     pkgs.fixjson
