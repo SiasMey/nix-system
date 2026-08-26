@@ -1,6 +1,8 @@
 local function setup_fzf_lua()
   local fzf_lua = require("fzf-lua")
   fzf_lua.setup({ "fzf-native" })
+  -- fzf_lua.register_ui_select()
+
   vim.keymap.set("n", "<leader>ff", function()
     fzf_lua.files()
   end, { noremap = true, silent = true })
@@ -13,7 +15,6 @@ local function setup_fzf_lua()
   vim.keymap.set("n", "M", function()
     fzf_lua.treesitter()
   end, { noremap = true, silent = true })
-  fzf_lua.register_ui_select()
 end
 
 local M = {}

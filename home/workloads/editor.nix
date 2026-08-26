@@ -44,14 +44,15 @@
       hash = "sha256-PTL0wwUE1sO6YlJNPnlNilKyR5kQDBYXiDM5gh6pkuM=";
     };
   };
-  difftastic-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "difftastic.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "clabby";
-      repo = "difftastic.nvim";
-      rev = "main";
-    };
-  };
+  # difftastic-nvim = pkgs.vimUtils.buildVimPlugin {
+  #   name = "difftastic.nvim";
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "clabby";
+  #     repo = "difftastic.nvim";
+  #     rev = "main";
+  #     hash = "sha256-x5rm54LdloowVFPtNGs/N6dAqcVe3tHH7eJjPvxdqzk=";
+  #   };
+  # };
   local-async-nvim = pkgs.vimUtils.buildVimPlugin {
     pname = "async.nvim";
     version = "2026-04-30";
@@ -167,7 +168,7 @@ in {
       workspace-diagnostics
       pytest-approve-nvim
       fluoride-nvim
-      difftastic-nvim
+      # difftastic-nvim
     ];
 
     initLua = ''

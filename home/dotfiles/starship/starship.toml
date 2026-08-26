@@ -39,16 +39,7 @@ truncation_symbol = "…/"
 style = "fg:12 bg:8"
 disabled = false
 detect_files = ["k8s"]
-format = "[\ue0b2](fg:8)[${symbol} ($user on )$context ($namespace)]($style)"
-
-[kubernetes.context_aliases]
-"minikube" = "dev"
-"arn:aws:eks:us-west-1:976748715263:cluster/uxi_staging" = "uxi_staging"
-
-[kubernetes.user_aliases]
-"minikube" = "dev"
-"arn:aws:eks:us-west-1:976748715263:cluster/uxi_staging" = "dev"
-
+format = "[\ue0b2](fg:8)[${symbol}ct=$context ns=($namespace)]($style)"
 
 [python]
 style = "fg:12 bg:8"
